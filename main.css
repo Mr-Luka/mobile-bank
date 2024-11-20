@@ -60,3 +60,31 @@ h1,h3,h4{
 .table ul li:not(:last-child) {
     border-bottom: 1px #ccc solid;
 }
+
+.table li > div:nth-child(1) {
+    text-align: left;
+}
+
+.table a {
+    display: inline-block;
+    margin: 1em 0;
+    color: #fff;
+    text-decoration: none;
+}
+.table a:hover {
+    color: #ccc;
+}
+
+.table button {
+    margin: 1em auto 0.5em auto;
+    border: none;
+    border-radius: 2em;
+    padding: 0.5em 1.5em;
+    background: #fff;
+    color: #1f1f1f;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+}
