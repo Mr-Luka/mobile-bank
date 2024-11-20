@@ -10,10 +10,14 @@ h1,h3,h4{
 .account {
     min-height: 100vh;
     background: url('./pictures/1.jpg') center no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
+.table * {
+    box-sizing: border-box;
 }
 
 .table {
@@ -23,9 +27,36 @@ h1,h3,h4{
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.18);
-    width: 16em;
+    width: 19em;
     border-radius: 30px;
     color: #fff;
     text-align: center;
     overflow: hidden;
+}
+.table h1 {
+    font-size: 5em;
+    margin: 0.2em 0 0 0;
+
+}
+.table h1 sup {
+    font-size: 0.5em;
+    font-weight: 400;
+    margin-right: 0.2em;
+}
+
+.table ul{
+    margin: 1em 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.table ul li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 0;
+}
+
+.table ul li:not(:last-child) {
+    border-bottom: 1px #ccc solid;
 }
