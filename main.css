@@ -1,18 +1,86 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-     background: url('./pictures/3.jpg') center no-repeat;
+    background: url('./pictures/1.jpg') center no-repeat;
     background-size: cover;
-    }
+}
+
+
+header {
+    background-color: #bbc6fb31;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+header p {
+    margin-left: 1.5rem;
+    font-size: 2rem;
+    color: white;
+}
+.nav-bar{
+    margin-right: 3rem;
+    background-color: rgba(0, 0, 0, 0.142);
+    box-shadow: 0 12px 32px 0 rgba(251, 206, 166, 0.804);
+    border-radius: 20px;
+    animation: fadeLeft 1700ms ease-in-out forwards;
+}
+.nav-bar ul {
+    display: flex;
+    list-style: none;
+}
+.nav-bar ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 5rem;
+    animation: fadeLeft 2700ms ease-in-out forwards;
+    
+}
+.nav-bar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+.nav-bar ul li a:hover {
+    color: #f7d2b8;
+    scale: 1.2;
+}
+
+.hi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+}
+
+.hi h2 {
+    font-size: 3rem;
+    color: rgb(16, 63, 14);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    border-radius: 40px;
+    width: 30%;
+    box-shadow: 0 20px 32px 0 rgba(0, 0, 0, 0.3);
+    animation: fadeDown 2700ms ease-in-out forwards;
+}
+
+.hi h2:hover {
+    color: #ffffff;
+    box-shadow: 0 20px 32px 0 rgba(255, 255, 255, 0.3);
+}
 
 h1,h3,h4{
     margin: 0;
 }
 
 .account {
-    min-height: 100vh;
-   
-    background-size: cover;
+    min-height: 70vh;
+    width: 70%;
+    margin-left: 15%;
+    border-radius: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,16 +104,16 @@ h1,h3,h4{
     overflow: hidden;
 }
 .first-table {
-    box-shadow: 0 8px 32px 0 rgba(250, 250, 99, 0.412);
+    box-shadow: 10px 10px 32px 10px rgba(250, 250, 99, 0.412);
 }
 .second-table {
     background: rgba(152, 250, 141, 0.117);
-    box-shadow: 0 8px 32px 0 rgba(121, 249, 114, 0.412);
+    box-shadow: 10px 10px 32px 10px rgba(121, 249, 114, 0.412);
 }
 
 .third-table {
     background: rgba(255, 175, 175, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(249, 114, 114, 0.412);
+    box-shadow: 10px 10px 32px 10px rgba(249, 114, 114, 0.412);
 }
 .table h1 {
     font-size: 5em;
@@ -101,4 +169,29 @@ h1,h3,h4{
     justify-content: space-between;
     align-items: center;
     font-weight: 700;
+}
+
+
+
+
+@keyframes fadeLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(120px)
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0)
+    }
+}
+
+@keyframes fadeDown {
+     0% {
+        opacity: 0;
+        transform: translateY(-150px)
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0)
+    }
 }
