@@ -1,7 +1,9 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-}
+     background: url('./pictures/3.jpg') center no-repeat;
+    background-size: cover;
+    }
 
 h1,h3,h4{
     margin: 0;
@@ -9,7 +11,7 @@ h1,h3,h4{
 
 .account {
     min-height: 100vh;
-    background: url('./pictures/1.jpg') center no-repeat;
+   
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -32,6 +34,18 @@ h1,h3,h4{
     color: #fff;
     text-align: center;
     overflow: hidden;
+}
+.first-table {
+    box-shadow: 0 8px 32px 0 rgba(250, 250, 99, 0.412);
+}
+.second-table {
+    background: rgba(152, 250, 141, 0.117);
+    box-shadow: 0 8px 32px 0 rgba(121, 249, 114, 0.412);
+}
+
+.third-table {
+    background: rgba(255, 175, 175, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(249, 114, 114, 0.412);
 }
 .table h1 {
     font-size: 5em;
