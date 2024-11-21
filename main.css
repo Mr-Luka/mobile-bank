@@ -17,6 +17,7 @@ header {
 header p {
     margin-left: 1.5rem;
     font-size: 2rem;
+    font-weight: 800;
     color: white;
 }
 .nav-bar{
