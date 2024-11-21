@@ -195,3 +195,21 @@ h1,h3,h4{
         transform: translateY(0)
     }
 }
+
+
+
+
+
+@media screen and (max-width: 767px) {
+    .nav-bar ul li {
+        margin-right: 2rem;
+    }
+    .nav-bar ul li a{
+       text-align: center;
+       font-size: 1rem;
+    }
+    .hi h2 {
+        font-size: 2rem;
+    }
+
+}
