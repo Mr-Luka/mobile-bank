@@ -203,7 +203,22 @@ h1,h3,h4{
 
 
 
+/* PAY AND TRANSFER */
+#transaction-video{
+    position: absolute;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
 
+.landing-pay-transfer{
+    box-shadow: 0 12px 32px 0 rgba(158, 238, 127, 0.804);
+}
+
+.logo-pay-transfer{
+    color: rgba(0, 0, 0, 0.491);
+}
 
 @media screen and (max-width: 767px) {
     .nav-bar ul li {
