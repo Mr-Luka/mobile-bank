@@ -179,6 +179,74 @@ h1,h3,h4{
 
 
 
+
+/* PAY AND TRANSFER */
+#transaction-video{
+    position: absolute;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.landing-pay-transfer{
+    box-shadow: 0 12px 32px 0 rgba(158, 238, 127, 0.804);
+}
+
+.logo-pay-transfer{
+    color: rgba(0, 0, 0, 0.491);
+}
+
+.option-blocks {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    left: 7%;
+    top: 25%;
+    padding: 10rem;
+    background-color: rgba(189, 189, 189, 0.335);
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 30px 42px 52px 30px rgba(0, 0, 0, 0.804);
+}
+
+.option-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 20%;
+    padding: 3rem 1rem 2rem 1rem;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.option-block:hover {
+    scale: 1.1;
+    transition: 0.2s;
+    color: rgb(28, 255, 115);
+}
+
+.option-block h3 {
+    font-size: 1.6em;
+}
+.option-block p {
+    font-size: 1.1rem;
+    color: rgb(104, 104, 104);
+}
+
+.pay-transfer-icons {
+    width: 35%;
+}
+
+
+
+/* KEYFRAMES */
+
 @keyframes fadeLeft {
     0% {
         opacity: 0;
@@ -201,24 +269,6 @@ h1,h3,h4{
     }
 }
 
-
-
-/* PAY AND TRANSFER */
-#transaction-video{
-    position: absolute;
-    top: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1;
-}
-
-.landing-pay-transfer{
-    box-shadow: 0 12px 32px 0 rgba(158, 238, 127, 0.804);
-}
-
-.logo-pay-transfer{
-    color: rgba(0, 0, 0, 0.491);
-}
 
 @media screen and (max-width: 767px) {
     .nav-bar ul li {
