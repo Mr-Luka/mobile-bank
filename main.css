@@ -316,6 +316,53 @@ img.about-img {
 }
 
 
+
+       /* FOOTER */
+footer {
+    position: absolute;
+    bottom: -20%;
+    width: 100%;
+    background-color: #eeeeee4a;
+}
+
+.h-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 80%;
+    margin: 0 auto;
+}
+
+ul.footer-ul {
+    list-style: none;
+}
+ul.footer-ul li {
+    color: grey;
+}
+ul.footer-ul li:hover {
+    color: rgb(57, 59, 57);
+}
+ul li.h-li {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: .6rem;
+    color: black;
+}
+
+
+ul.footer-ul-4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+ul li.h-li {
+    margin-right: 1rem;
+}
+ul li img:hover {
+    scale: 1.3;
+}
+
 /* KEYFRAMES */
 
 @keyframes fadeLeft {
