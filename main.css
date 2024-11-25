@@ -318,6 +318,18 @@ img.about-img {
 
 
        /* FOOTER */
+footer.footer-home-page{
+    bottom: -15%;
+    background-color: rgb(235, 173, 135);
+    box-shadow: 0 12px 82px 0 rgba(233, 237, 32, 0.804);
+    backdrop-filter: blur(10px);
+}
+
+
+footer.footer-pay-transfer {
+    bottom: -18%;
+    background-color: aquamarine;
+}
 footer {
     position: absolute;
     bottom: -20%;
@@ -347,6 +359,12 @@ ul li.h-li {
     font-weight: bold;
     margin-bottom: .6rem;
     color: black;
+}
+ul li.li-home {
+    color: rgb(255, 255, 255);
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: .6rem;
 }
 
 
