@@ -18,6 +18,12 @@ header {
     justify-content: space-between;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+}
 header p {
     margin-left: 1.5rem;
     font-size: 2rem;
