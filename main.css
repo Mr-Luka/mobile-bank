@@ -10,13 +10,32 @@ body.register-body{
     background-color: rgb(224, 224, 224);
 }
 #register-video{
-    position: absolute;
-    z-index: 1;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    box-shadow: 0 42px 62px 15px rgba(10, 10, 10, 0.3)}
+       width: 100vw;
+   height: 100vh;
+   object-fit: cover;
+   position: fixed;
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   z-index: -1;
+}
+
+.signup-box{
+    width: 360px;
+    height: 620px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+}
+.signup-box h1 {
+    text-align: center;
+    padding-top: 15px;
+}
+.signup-box h4{
+    text-align: center;
+}
+
 
 .bank-wrapper {
     background: url('./media/1.jpg') center no-repeat;
