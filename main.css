@@ -1,13 +1,14 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: rgb(199, 117, 16);
+    background-color: #ac795a;
 }
 
 .bank-wrapper {
     background: url('./media/1.jpg') center no-repeat;
     background-size: cover;
-    background-color: rgb(255, 177, 81);
+    background-color: #ac795a;
+    box-shadow: 0 8px 32px 0 rgba(250, 0, 0, 0.3);
 }
 
 header {
@@ -439,6 +440,13 @@ ul li img:hover {
     }
 }
 
+@media screen and (max-width: 1164px){
+    .footer-home-page{
+        margin-bottom: -110%;
+    }
+}
+
+
 @media screen and (max-width: 900px){
 
     .footer-pay-transfer{
@@ -481,6 +489,11 @@ ul li img:hover {
     .pay-transfer-icons {
     width: 50%;
     }
+
+    /* HOME */
+    .footer-home-page{
+        margin-bottom: -120%;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -519,6 +532,11 @@ ul li img:hover {
         align-items: center;
     }
 
+    /* HOME */
+    .footer-home-page{
+        margin-bottom: -200%;
+    }
+
     /* pay and transfer section */
     h1.pay-transfer{
         font-size: 1rem;
@@ -533,6 +551,7 @@ ul li img:hover {
         display: flex;
         flex-direction: column;
         align-items: center;
+        transition: 0.3s;
     }
     div#transfer,
     div#send-recieve,
@@ -544,6 +563,7 @@ ul li img:hover {
         align-items: center;
         text-align: center;
         margin-left: 0%;
+        transition: 0.3s;
     }
 
     .footer-pay-transfer{
