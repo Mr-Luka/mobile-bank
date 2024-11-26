@@ -187,14 +187,18 @@ h1,h3,h4{
 
 
 /* PAY AND TRANSFER */
+body.pay-transfer-body{
+    background-color: #fcfed4;
+}
 #transaction-video{
     position: absolute;
     top: 0;
-    min-width: 100%;
-    min-height: 100%;
+    height: 100%;
+    width: 100%;
     z-index: -1;
-    left: 50%;
-    transform: translateX(-50%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .landing-pay-transfer{
@@ -435,6 +439,49 @@ ul li img:hover {
     }
 }
 
+@media screen and (max-width: 900px){
+
+    .footer-pay-transfer{
+        margin-bottom: 5%;
+        padding-bottom: 1rem;
+    }
+    .h-footer {
+        width: 60%;
+        margin-left: 1rem;
+        margin-top: 5rem;
+    }
+    ul.footer-ul li {
+    font-size: 0.9rem;
+    }
+
+
+    .option-blocks {
+        transition: 0.3s;
+        width: 80%;
+        padding: 4rem 4rem 4rem 4rem;
+        left: 3%;
+        margin-top: 20%;
+    }
+    .option-block {
+        width: 120%;
+
+    }
+    #send-recieve,
+    #pay-bills,
+    #wire {
+        margin-left: 10%;
+        width: 150%;
+    }
+    .option-block h3 {
+        font-size: 1rem;
+    }
+    .option-block p {
+    font-size: 0.8rem;
+    }
+    .pay-transfer-icons {
+    width: 50%;
+    }
+}
 
 @media screen and (max-width: 767px) {
     .nav-bar ul li {
@@ -450,5 +497,58 @@ ul li img:hover {
     .hi h2 {
         font-size: 2rem;
     }
+
+    footer {
+        margin-bottom: -100%;
+    }
+    .h-footer {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 5rem;
+    }
+    ul.footer-ul li {
+    font-size: 0.9rem;
+    }
+    ul.footer-ul-4 {
+        position: absolute;
+        margin-left: 40%;
+        top: 25%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* pay and transfer section */
+    h1.pay-transfer{
+        font-size: 1rem;
+        margin-top: 5%;
+        left: 40%;
+    }
+    .option-blocks{
+        margin-top: 10%;
+        width: 65%;
+        left: 7%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    div#transfer,
+    div#send-recieve,
+    div#pay-bills,
+    div#wire {
+        width: 20%;
+        padding: 2rem 2rem 1rem 2rem;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin-left: 0%;
+    }
+
+    .footer-pay-transfer{
+        margin-bottom: -100%;
+    }
+
 
 }
