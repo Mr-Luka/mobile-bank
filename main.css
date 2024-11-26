@@ -23,7 +23,13 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 1rem;
+    margin-left: 2rem;
+    animation: fadeRight 1700ms ease-in-out forwards;
+}
+
+#logo-coin{
+    width: 5rem;
+    animation: fadeDown 2700ms ease-in-out forwards;
 }
 header p {
     margin-left: 1.5rem;
@@ -76,7 +82,7 @@ header p {
     border-radius: 40px;
     width: 30%;
     box-shadow: 0 20px 32px 0 rgba(0, 0, 0, 0.3);
-    animation: fadeDown 2700ms ease-in-out forwards;
+    animation: fadeDown 1700ms ease-in-out forwards;
 }
 
 .hi h2:hover {
