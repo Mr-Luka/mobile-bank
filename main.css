@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #ac795a;
+    background-color: rgb(228, 227, 227);
 }
 
 
@@ -547,14 +547,14 @@ h1.pay-transfer{
     background-color: #fff;
 }
 
-img.about-img {
-    background-position: center;
-    background-repeat: no-repeat;
+.about-img {
+    background: url("./media/telephone-4440525_1280.jpg") center no-repeat;
     background-size: cover;
-    position: absolute;
-    z-index:-1;
+    /* position: absolute;
+    z-index:-1; */
     width: 100%;
-    height: auto;
+    height: 100vh;
+    margin-bottom: auto;
 }
 
 .about-header{
@@ -564,6 +564,8 @@ img.about-img {
     background-color: #555555aa;
     padding: 2rem;
     width: 70%;
+    height: 60%;
+    overflow: auto;
     font-size: 1.3rem;
     border-radius: 40px;
     box-shadow: 0 12px 32px 0 rgba(127, 238, 232, 0.403);
@@ -571,9 +573,7 @@ img.about-img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 10rem;
-    position: absolute;
-    left: 13%;
+    margin: 10rem auto;
     color: white;
 }
 
@@ -582,14 +582,17 @@ img.about-img {
     margin-top: 3rem;
 }
 
-
+footer.about-footer{
+    position: relative;
+    width: 100%;
+}
 
        /* FOOTER */
 footer.footer-home-page{
-    bottom: -15%;
     background-color: rgb(235, 173, 135);
     box-shadow: inset 0px 15px 20px 10px rgb(196, 132, 92);
     backdrop-filter: blur(10px);
+    position: relative;
 }
 
 
@@ -696,11 +699,7 @@ ul li img:hover {
     }
 }
 
-@media screen and (max-width: 1164px){
-    .footer-home-page{
-        margin-bottom: -110%;
-    }
-}
+
 
 
 @media screen and (max-width: 900px){
@@ -746,10 +745,7 @@ ul li img:hover {
     width: 50%;
     }
 
-    /* HOME */
-    .footer-home-page{
-        margin-bottom: -120%;
-    }
+
 }
 
 @media screen and (max-width: 767px) {
@@ -767,11 +763,8 @@ ul li img:hover {
         font-size: 2rem;
     }
 
-    footer {
-        margin-bottom: -100%;
-    }
     .h-footer {
-        width: 50%;
+        width: 55%;
         display: flex;
         flex-direction: column;
         margin-left: 5rem;
@@ -782,16 +775,17 @@ ul li img:hover {
     ul.footer-ul-4 {
         position: absolute;
         margin-left: 40%;
-        top: 25%;
+        top: 15%;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    /* HOME */
-    .footer-home-page{
-        margin-bottom: -200%;
+    footer {
+        margin-top: 0%;
     }
+
+
 
     /* pay and transfer section */
     h1.pay-transfer{
