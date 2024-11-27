@@ -5,6 +5,7 @@ body {
 }
 
 
+
 /* SIGNUP / SIGN IN */
 body.register-body{
     background-color: rgb(225, 74, 74);
@@ -21,6 +22,8 @@ body.register-body{
    bottom: 0;
    z-index: -1;
 }
+
+
 
 .signup-box{
     height: 620px;
@@ -39,6 +42,16 @@ body.register-body{
 .login-box {
     height: 280px;
     margin-top: 25rem;
+}
+
+#login-logo {
+    width: 7rem;
+    margin: 0;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .signup-box h1,
@@ -481,7 +494,8 @@ h1.pay-transfer{
 }
 
 
-.option-blocks {
+.option-blocks,
+.transfer-choice {
     animation: fadeUp 1700ms ease-in-out forwards;
     width: 70%;
     display: flex;
@@ -700,7 +714,9 @@ ul li img:hover {
 }
 
 
-
+.hidden {
+    display: none;
+}
 
 @media screen and (max-width: 900px){
 

@@ -34,7 +34,7 @@
             </div>
         </header>
         <h1 class="pay-transfer">Pay & Transfer</h1>
-        <div class="option-blocks">
+        <div class="option-blocks ">
             <div class="option-block" id="transfer">
                 <img class="pay-transfer-icons" src="./media/icons/diagram.gif" alt="transfer logo">
                 <h3>Transfer</h3>
@@ -56,6 +56,58 @@
                 <p>U.S. or international</p>
             </div>
         </div>
+    </div>
+    <div class="transfer-choice">
+        <h1>Choose the account to transfer from:</h1>
+        <div clas="choose-the-account-from">
+        <form action="/action_page.php" method="get">
+        <label for="browser">Choose the account to transfer from:</label>
+        <input list="browsers" name="browser" id="input-account">
+        <datalist id="browsers">
+        <option value="Checking Account">
+        <option value="Savings Account">
+        <option value="Credit Card">
+        </datalist>
+        <input type="submit">
+        </form>
+        </div>
+        <div class="option-checking hidden">
+            <h2>Checking Account</h2>
+            <p>Available balance: $1,000.00</p>
+        </div>
+        <div class="option-savings hidden">
+            <h2>Savings Account</h2>
+            <p>Available balance: $1,000.00</p>
+        </div>
+        <div class="option-credit hidden">
+            <h2>Credit Card</h2>
+            <p>Available balance: $1,000.00</p>
+        </div>
+        <div class="transfer-to">
+            <form action="/action_page.php" method="get">
+            <label for="browser">Choose the account to transfer to:</label>
+            <input list="browsers" name="browser" id="input-account">
+            <datalist id="browsers">
+            <option value="Checking Account">
+            <option value="Savings Account">
+            <option value="Credit Card">
+            </datalist>
+            <input type="submit">
+            </form>
+        </div>
+        <div class="trasnfer-to-checking hidden">
+            <h2>Checking Account</h2>
+            <p>Available balance: $1,000.00</p>
+        </div>
+        <div class="trasnfer-to-savings hidden">
+            <h2>Savings Account</h2>
+            <p>Available balance: $1,000.00</p>
+        </div>
+        <div class="trasnfer-to-credit hidden">
+            <h2>Credit Card</h2>
+            <p>Available balance: $1,000.00</p>
+        </div>
+        
     </div>
     <footer class="footer-pay-transfer">
             <div class="h-footer">
