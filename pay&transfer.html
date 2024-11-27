@@ -34,7 +34,7 @@
             </div>
         </header>
         <h1 class="pay-transfer">Pay & Transfer</h1>
-        <div class="option-blocks ">
+        <div class="option-blocks hidden">
             <div class="option-block" id="transfer">
                 <img class="pay-transfer-icons" src="./media/icons/diagram.gif" alt="transfer logo">
                 <h3>Transfer</h3>
@@ -57,10 +57,10 @@
             </div>
         </div>
     </div>
-    <div class="transfer-choice">
+    <div class="transfer-choice ">
         <h1>Choose the account to transfer from:</h1>
         <div clas="choose-the-account-from">
-        <form action="/action_page.php" method="get">
+        <form class="choose-account-form" action="/action_page.php" method="get">
         <label for="browser">Choose the account to transfer from:</label>
         <input list="browsers" name="browser" id="input-account">
         <datalist id="browsers">
@@ -68,7 +68,7 @@
         <option value="Savings Account">
         <option value="Credit Card">
         </datalist>
-        <input type="submit">
+        <input class="input-submit" type="submit">
         </form>
         </div>
         <div class="option-checking hidden">
@@ -92,7 +92,7 @@
             <option value="Savings Account">
             <option value="Credit Card">
             </datalist>
-            <input type="submit">
+            <input class="input-submit" type="submit">
             </form>
         </div>
         <div class="trasnfer-to-checking hidden">
