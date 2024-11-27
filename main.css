@@ -891,6 +891,11 @@ ul li img:hover {
         transition: 0.3s;
     }
 
+    .transfer-choice {
+        margin-top: 12rem;
+        padding-bottom: 27rem;
+    }
+
     .footer-pay-transfer{
         margin-bottom: -100%;
     }
