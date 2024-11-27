@@ -110,13 +110,16 @@ form.signin-form input[type="button"] {
 }
 
 .button-finish {
-    
-}
-
-button#continue {
     position: absolute;
     top: 50%;
     left: 5%;
+    text-align: center;
+    color: grey;
+    font-size: 1.1rem;
+    animation: fadeRight 4700ms ease-in-out forwards;
+}
+
+button#continue {
     padding: 1rem;
     border: none;
     border-radius: 35px;
@@ -125,6 +128,11 @@ button#continue {
     font-size: 1.3rem;
     font-weight: 800;
     box-shadow: 10px 10px 32px 0px rgba(1, 27, 142, 0.737);
+}
+button#continue:hover {
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid white;
+    color: black;
 }
 
 .animate {
@@ -225,13 +233,25 @@ button#continue {
     background-color: rgba(162, 162, 7, 0.597);
     box-shadow: 10px 10px 32px 10px rgba(143, 143, 45, 0.412);
 }
+.random-checking:hover {
+    background-color: rgba(215, 215, 0, 0.597);
+    box-shadow: 10px 10px 32px 10px rgba(61, 61, 7, 0.412);
+}
 .random-savings{
     background-color: rgba(12, 129, 6, 0.618);
     box-shadow: 10px 10px 32px 10px rgba(121, 249, 114, 0.412);
 }
+.random-savings:hover {
+    background-color: rgba(14, 224, 3, 0.618);
+    box-shadow: 10px 10px 32px 10px rgba(87, 232, 79, 0.761);
+}
 .random-credit {
     background-color: rgba(174, 35, 35, 0.756);
     box-shadow: 10px 10px 32px 10px rgba(249, 114, 114, 0.412);
+}
+.random-credit:hover{
+    background-color: rgba(219, 36, 36, 0.756);
+    box-shadow: 10px 10px 32px 10px rgba(249, 114, 114, 0.706);
 }
 
 .bank-wrapper {
