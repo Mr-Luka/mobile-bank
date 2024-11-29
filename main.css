@@ -111,6 +111,20 @@ form.signin-form input[type="button"] {
     color: #dfdfdf
 }
 
+     /* MY PROFILE */
+     body.my-profile{
+        background-image: url('./media/videos/register.mp4');
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+     }
+
 /* SPIN FOR MONEY */
 
 .container-money {
