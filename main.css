@@ -25,11 +25,13 @@ body.register-body{
 
 
 
-.signup-box{
+.signup-box,
+.my-info-box{
     height: 620px;
 }
 .signup-box,
-.login-box{
+.login-box,
+.my-info-box{
     width: 360px;
     margin: auto;
     margin-top: 10rem;
@@ -55,27 +57,32 @@ body.register-body{
 }
 
 .signup-box h1,
-.login-box h1 {
+.login-box h1,
+.my-info-box h1 {
     text-align: center;
     padding-top: 15px;
 }
-.signup-box h4{
+.signup-box h4,
+.my-info-box h4{
     text-align: center;
 }
 
 form.register-form,
-form.signin-form {
+form.signin-form,
+form.my-info-box {
     width: 300px;
     margin-left: 20px;
 }
 form.register-form label,
-form.signin-form label {
+form.signin-form label,
+form.my-info-box label {
     display: flex;
     margin-top: 20px;
     font-size: 18px;
 }
 form.register-form input,
-form.signin-form input {
+form.signin-form input,
+form.my-info-box input {
     width: 100%;
     padding: 7px;
     border: none;
@@ -84,7 +91,8 @@ form.signin-form input {
     outline: none;
 }
 form.register-form input[type="button"],
-form.signin-form input[type="button"] {
+form.signin-form input[type="button"],
+form.my-info-box input[type="button"] {
     width: 320px;
     height: 35px;
     margin-top: 20px;
@@ -94,7 +102,15 @@ form.signin-form input[type="button"] {
     font-size: 18px;
 }
 
-.signup-box p {
+form.register-form input[type="button"]:hover,
+form.signin-form input[type="button"]:hover,
+form.my-info-box input[type="button"]:hover {
+    background-color: #9cecd8;
+    border: 2px solid #49c1a2;
+}
+
+.signup-box p,
+.my-info-box p {
     text-align: center;
     padding-top: 20px;
     font-size: 15px;
@@ -112,18 +128,11 @@ form.signin-form input[type="button"] {
 }
 
      /* MY PROFILE */
-     body.my-profile{
-        background-image: url('./media/videos/register.mp4');
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        z-index: -1;
-     }
+.my-info-box {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0);
+     box-shadow: 10px 10px 32px 10px rgba(255, 255, 255, 0.635);
+}
 
 /* SPIN FOR MONEY */
 

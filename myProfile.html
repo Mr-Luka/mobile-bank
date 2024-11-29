@@ -21,20 +21,22 @@
 <body class="register-body my-profile">
     <video src="./media/videos/register.mp4" autoplay muted loop id="register-video"> </video>
 
-    <div class="signup-box">
+    <div class="my-info-box ">
         <h1>My Info</h1>
         <form class="register-form">
             <label>Postal / zip vode:</label>
             <input type="text" required="required" placeholder="">
             <label>Home Address:</label>
             <input type="text" required="required" placeholder="">
+            <label>State:</label>
+            <input type="..." required="required" placeholder="">
             <label>Apt, Suite, Unit, etc.</label>
             <input type="text" required="required" placeholder="">
             <label>DOB</label>
             <input type="date" name="birthday" required="required" placeholder="">
             <label>Annual Income:</label>
             <input type="number" min="0" max="100000" step="any" required="required" placeholder="$$$">
-            <input type="button" value="Submit">
+            <input id="save-info" type="button" value="Save">
         </form>
     </div>
 </body>
