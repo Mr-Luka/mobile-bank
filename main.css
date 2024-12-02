@@ -528,7 +528,7 @@ h1.pay-transfer{
     justify-content: space-between;
     align-items: center;
     position: absolute;
-    left: 7%;
+    left: 5%;
     top: 25%;
     padding: 10rem;
     background-color: rgba(189, 189, 189, 0.335);
@@ -587,14 +587,13 @@ h1.pay-transfer{
     backdrop-filter: blur(10px);
     padding: 4rem 2rem;
     width: 70%;
-    height: 60%;
     font-size: 1.3rem;
     border-radius: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 8rem auto;
+    margin: 3rem auto;
     animation: fadeUp 1700ms ease-in-out forwards;
 }
 .transfer-choice h1 {
@@ -613,7 +612,7 @@ input#input-account{
     margin-left: 1rem;
 }
 input.input-submit {
-    margin-left: 1rem;
+    margin: 1rem 0 0 1rem;
     font-weight: 800;
     border: 2px solid white;
     padding: 1rem;
@@ -622,6 +621,7 @@ input.input-submit {
 }
 input.input-submit:hover {
     background-color: rgba(0, 0, 255, 0);
+    border: 1px solid black;
 }
 
 .choice-transfer{
@@ -648,7 +648,7 @@ input.input-number{
 .send-recieve-div{
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.359);
-    width: 100%;
+    width: auto;
     height: 100%;
     padding: 2rem;
     display: flex;
@@ -670,7 +670,7 @@ input.input-number{
     padding: 1rem;
     border-radius: 50%;
     background-color: rgba(255, 253, 253, 0);
-    color: white;
+    color: rgb(140, 140, 140);
     border: none;
     font-weight: 800;
 }
@@ -731,7 +731,8 @@ footer.footer-home-page{
 
 
 footer.footer-pay-transfer {
-    bottom: -18%;
+    width: 100%;
+    bottom: auto;
     background-color: aquamarine;
     box-shadow: inset 0px 25px 10px 10px rgb(79, 168, 138);
 }
@@ -840,10 +841,6 @@ ul li img:hover {
 
 @media screen and (max-width: 900px){
 
-    .footer-pay-transfer{
-        margin-bottom: 5%;
-        padding-bottom: 1rem;
-    }
     .h-footer {
         width: 60%;
         margin-left: 1rem;
@@ -881,7 +878,19 @@ ul li img:hover {
     width: 50%;
     }
 
-
+    .input-amount {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+    }
+    .exit-ZeX{
+        font-size: 1.5rem;
+        margin-top: -3rem;
+    }
+    footer.footer-pay-transfer{
+        bottom: auto;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -953,8 +962,9 @@ ul li img:hover {
     }
 
     .transfer-choice {
+        padding: 4rem;
         margin-top: 12rem;
-        padding-bottom: 27rem;
+        padding-bottom: auto;
     }
 
     .footer-pay-transfer{
