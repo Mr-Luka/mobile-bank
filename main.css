@@ -684,7 +684,6 @@ input.input-number{
 /* convert crypto */
 .convert-crypto {
     margin-top: 15rem;
-
     background-color: #24a9e6cc;
     width: auto;
     display: flex;
@@ -852,7 +851,6 @@ ul li img:hover {
         transform: translateX(0)
     }
 }
-
 @keyframes fadeDown {
      0% {
         opacity: 0;
@@ -863,7 +861,6 @@ ul li img:hover {
         transform: translateY(0)
     }
 }
-
 @keyframes fadeUp {
      0% {
         opacity: 0;
@@ -874,7 +871,6 @@ ul li img:hover {
         transform: translateY(0)
     }
 }
-
 @keyframes fadeRight {
     0% {
         opacity: 0;
@@ -943,6 +939,9 @@ ul li img:hover {
     footer.footer-pay-transfer{
         bottom: auto;
     }
+    .convert-crypto{
+        margin: 10rem 0 5rem 0;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -991,13 +990,8 @@ ul li img:hover {
         left: 40%;
     }
     .option-blocks{
-        margin-top: 10%;
-        width: 65%;
-        left: 7%;
-        height: 80%;
-        display: flex;
+        justify-content: center;
         flex-direction: column;
-        align-items: center;
         transition: 0.3s;
     }
     div#transfer,
@@ -1009,7 +1003,7 @@ ul li img:hover {
         display: flex;
         align-items: center;
         text-align: center;
-        margin-left: 0%;
+        margin: 0 0 1rem 0;
         transition: 0.3s;
     }
 
@@ -1033,6 +1027,18 @@ ul li img:hover {
 
     footer.footer-pay-transfer{
         bottom: auto;
+    }
+
+    .convert-crypto{
+        /* position: absolute;
+        z-index: 2;
+        top: 5%;
+        width: 90%;
+        left: 5%; */
+        flex-direction: column;
+    }
+    .top-crypto{
+        text-align: center;
     }
 
 }
