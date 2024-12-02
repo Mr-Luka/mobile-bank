@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./main.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./script.js" type="module" defer></script>
     <title>Digital Coin</title>
 </head>
@@ -17,16 +18,16 @@
         <h4>It only takes a minute.</h4>
         <form class="register-form">
             <label>First Name</label>
-            <input type="text" placeholder="">
+            <input type="text" placeholder="" id="first-name-register" class="register-form-inputs">
             <label>Last Name</label>
-            <input type="text" placeholder="">
+            <input type="text" placeholder="" id="last-name-register" class="register-form-inputs">
             <label>Email</label>
-            <input type="email" placeholder="">
+            <input type="email" placeholder="" id="email-register" class="register-form-inputs">
             <label>Password</label>
-            <input type="password" placeholder="">
+            <input type="password" placeholder="" id="password-register" class="register-form-inputs">
             <label>Confirm Password</label>
-            <input type="password" placeholder="">
-            <input type="button" value="Submit">
+            <input type="password" placeholder="" id="password-register-confirm" class="register-form-inputs">
+            <input type="button" value="Submit" id="submit-register">
         </form>
         <p>By clicking the Sign Up Button, you agree to our<br>
         <a href="#">Terms and Conditions</a> and <a href="#"></a>Privacy Policy </p>

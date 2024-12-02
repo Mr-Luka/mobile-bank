@@ -1,3 +1,38 @@
+
+
+// Register / SIGNUP
+const registerInputs = document.querySelector('.register-form-inputs')
+const firstNameRegister = document.querySelector('#first-name-register');
+const lastNameRegister = document.querySelector('#last-name-register');
+const emailRegister = document.querySelector('#email-register');
+const passwordRegister = document.querySelector('#password-register');
+const confirmPasswordRegister = document.querySelector('#password-register-confirm');
+const submitRegisterButton = document.querySelector('#submit-register');
+
+
+function validateRegisterInputs () {
+
+  const firstName = firstNameRegister.value.trim();
+  const lastName = lastNameRegister.value.trim();
+  const email = emailRegister.value.trim();
+  const password = passwordRegister.value.trim();
+
+  const validEmailInput =  /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const validPasswordInput = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+  const validNameInput = /^[a-zA-Z\s'-]+$/;
+  const validLastNameInput = /^[a-zA-Z\s'-]+$/;
+
+
+  if (registerInputs.value.trim() === ''){
+    alert('please fill out the register form')
+  }
+}
+submitRegisterButton.addEventListener('click', validateRegisterInputs)
+
+
+
+// Tilt windows for home page 3 accounts
+// Savings, Checking and credit 
 var VanillaTilt = (function () {
 'use strict';
 
@@ -501,5 +536,5 @@ VanillaTilt.init(
         glare: true,
     }
 )
+// END Tilt windows for home page 3 accounts
 
-console.log('hi')
