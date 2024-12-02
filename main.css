@@ -679,6 +679,56 @@ input.input-number{
 .exit-ZeX:hover {
     color: rgb(251, 80, 80);
 }
+
+
+/* convert crypto */
+.convert-crypto {
+    margin-top: 15rem;
+
+    background-color: #24a9e6cc;
+    width: auto;
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+    border-radius: 10px;
+}
+.choose-account-for-crypto{
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    text-align: center;
+}
+.crypto-input-account {
+    margin-top: 1rem;
+}
+input#input-account.crypto-input-account:hover {
+    background: rgb(174, 246, 241);
+}
+
+.top-crypto {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+.top-crypto h2 {
+    font-size: 2rem;
+}
+.top-crypto input {
+    padding: 0.5rem;
+    color: rgb(190, 11, 181);
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 5px;
+}
+.crypto-list {
+    text-align: center;
+}
+
+
+
          /* ABOUT */
 
 .about-body {
