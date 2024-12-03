@@ -26,12 +26,21 @@ function validRegisterInput (name, lastName, email, password, passwordMatch){
 
   if(!validNameInput.test(name) || !validLastNameInput.test(lastName)){
     alert('Please enter correct letters for your full name')
-  } if (!validEmailInput.test(email)){
+  } else if (!validEmailInput.test(email)){
     alert('Please enter a valid email')
-  } if (!validPasswordInput.test(password)){
+  } else if (!validPasswordInput.test(password)){
     alert("Please enter a valid password, at least 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character)")
-  } if (password !== passwordMatch){
+  } else if (password !== passwordMatch){
     alert('Passwords do not match')
+  } else {
+    registration.firstName = name;
+    registration.lastName = lastName;
+    registration.email = email;
+    registration.password = password;
+  
+    localStorage.setItem('registration', JSON.stringify(registration))
+  
+    location.replace("./login.html")
   }
 
 }
@@ -40,7 +49,7 @@ function validateRegisterInputs () {
 
   const firstName = firstNameRegister.value.trim();
   const lastName = lastNameRegister.value.trim();
-  const email = emailRegister.value.trim();
+  const email = (emailRegister.value.trim()).toLowerCase();
   const password = passwordRegister.value.trim();
   const confirmPassword = confirmPasswordRegister.value.trim();
 
@@ -62,6 +71,7 @@ function validateRegisterInputs () {
   validRegisterInput(firstName, lastName, email, password, confirmPassword);
 }
 submitRegisterButton.addEventListener('click', validateRegisterInputs)
+
 
 
 
