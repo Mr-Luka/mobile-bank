@@ -95,6 +95,13 @@ const handleInput = debounce(async (e) => {
 homeAddressInput.addEventListener('input', handleInput);
 
 
+function validInputs (homeAddress, postalZipCode, state, apt, dob, income){
+    if (!homeAddress || !postalZipCode || !state || !apt || !dob || !income) {
+        alert('Please fill out the form')
+    } else {
+        location.replace("./spin-for-money.html")
+    }
+}
 
 
 function handleSave() {
@@ -117,7 +124,10 @@ function handleSave() {
     myInfo.aptSuite = apt;
     myInfo.dob = dobInput;
     myInfo.income = annual;
-    localStorage.setItem('myInfo', JSON.stringify(registration))
+    localStorage.setItem('myInfo', JSON.stringify(myInfo))
+    console.log(myInfo)
+    validInputs(address, zip, stateInput, apt, dobInput, annual );
+
 }
 
 saveInfo.addEventListener('click', handleSave);
