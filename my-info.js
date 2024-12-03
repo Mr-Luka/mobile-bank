@@ -5,7 +5,7 @@ const aptSuite = document.querySelector('#apt');
 const dob = document.querySelector('#dob');
 const income = document.querySelector('#income');
 const homeAddressesContainer = document.querySelector('.home-address-offer');
-
+const saveInfo = document.querySelector('#save-info');
 
 let myInfo = {
     homeAddress: '',
@@ -15,7 +15,6 @@ let myInfo = {
     dob: '',
     income: '',
 }
-
 
 
 // Debounce function to limit API calls
@@ -96,3 +95,29 @@ const handleInput = debounce(async (e) => {
 homeAddressInput.addEventListener('input', handleInput);
 
 
+
+
+function handleSave() {
+    const address = homeAddressInput.value.trim();
+    const zip = zipCode.value.trim()
+    const stateInput = state.value.trim();
+    const apt = aptSuite.value.trim();
+    const dobInput = dob.value.trim()
+    const incomeInput = income.value.trim()
+    // converting the income into proper format
+    const usDollar = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
+    const annual = usDollar.format(incomeInput);
+
+    myInfo.homeAddress = address;
+    myInfo.zipCode = zip;
+    myInfo.state = stateInput;
+    myInfo.aptSuite = apt;
+    myInfo.dob = dobInput;
+    myInfo.income = annual;
+    localStorage.setItem('myInfo', JSON.stringify(registration))
+}
+
+saveInfo.addEventListener('click', handleSave);
