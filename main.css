@@ -109,6 +109,13 @@ form.my-info-box input[type="button"]:hover {
     border: 2px solid #49c1a2;
 }
 
+input:invalid {
+    background-color: ivory;
+    outline: 2px solid red;
+    border-radius: 5px;
+    color: red;
+  }
+
 .signup-box p,
 .my-info-box p {
     text-align: center;
