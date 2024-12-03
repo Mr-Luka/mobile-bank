@@ -83,6 +83,9 @@ form.my-info-box label {
 form.register-form input,
 form.signin-form input,
 form.my-info-box input {
+    background-color: #e5ede03c;
+    font-size: 1rem;
+    letter-spacing: 1px;
     width: 100%;
     padding: 7px;
     border: none;
@@ -109,12 +112,16 @@ form.my-info-box input[type="button"]:hover {
     border: 2px solid #49c1a2;
 }
 
-input:invalid {
-    background-color: ivory;
-    outline: 2px solid red;
-    border-radius: 5px;
-    color: red;
-  }
+.invalid {
+    box-shadow: 0 0 5px rgb(230, 3, 3);
+}
+
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgb(85, 175, 223);
+}
+
 
 .signup-box p,
 .my-info-box p {
@@ -139,6 +146,7 @@ input:invalid {
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0);
     box-shadow: 10px 10px 32px 10px rgba(129, 129, 129, 0.635);
+    padding-bottom: 1rem;
 }
 
 .my-info-box:hover {
