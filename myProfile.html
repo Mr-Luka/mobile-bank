@@ -1,13 +1,5 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Coin</title>
-</head>
-<body>
-    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./main.css">
-    <script src="./script.js" type="module" defer></script>
+    <script src="./my-info.js" type="module" defer></script>
     <title>Digital Coin</title>
 </head>
 <body class="register-body my-profile">
@@ -24,10 +16,31 @@
     <div class="my-info-box ">
         <h1>My Info</h1>
         <form class="register-form">
-            <label>Postal / zip vode:</label>
-            <input type="text" required="required" placeholder="">
             <label>Home Address:</label>
-            <input type="text" required="required" placeholder="">
+            <input id="home-address" type="text" required="required" placeholder="">
+            <div class="home-address-offer hidden">
+                <div class="address-option">
+                    <h3>Address here</h3>
+                    <p>State, zip Code, country</p>
+                </div>
+                <hr>
+                <div class="address-option">
+                    <h3>Address here</h3>
+                    <p>State, zip Code, country</p>
+                </div>
+                <hr>
+                <div class="address-option">
+                    <h3>Address here</h3>
+                    <p>State, zip Code, country</p>
+                </div>
+                <hr>
+                <div class="address-option">
+                    <h3>Address here</h3>
+                    <p>State, zip Code, country</p>
+                </div>
+            </div>
+            <label>Postal / zip vode:</label>
+            <input id="zip-code" type="text" required="required" placeholder="">
             <label>State:</label>
             <input type="..." required="required" placeholder="">
             <label>Apt, Suite, Unit, etc.</label>
@@ -39,7 +52,5 @@
             <input id="save-info" type="button" value="Save">
         </form>
     </div>
-</body>
-</html>
 </body>
 </html>
