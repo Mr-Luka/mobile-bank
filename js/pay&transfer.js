@@ -16,6 +16,8 @@ function exitWindow (){
     transferChoice.classList.add('hidden');
     sendRecieveWindow.classList.add('hidden');
     cryptoWindow.classList.add('hidden');
+    hideAccounts()
+    
 }
 function openTransfer(){
     transferChoice.classList.remove('hidden');
@@ -40,14 +42,15 @@ cryptoBlock.addEventListener('click', openCrypto);
 // END of the click event segment
 
 
-// TRANSFER WINDOW
+            // T R A N S F E R   W I N D O W
+
 const transferFromInput = document.querySelector('#mySelect-from');
 const transferFromOptions = {
     'Checking Account': document.querySelector('.option-checking.choice-transfer'),
     'Savings Account': document.querySelector('.option-savings.choice-transfer'),
     'Credit Card': document.querySelector('.option-credit.choice-transfer'),
 }
-
+// transfer from
 transferFromInput.addEventListener('change', (e)=>{
     const selectedOption = e.target.value;
     Object.keys(transferFromOptions).forEach(accountType => {
@@ -55,3 +58,26 @@ transferFromInput.addEventListener('change', (e)=>{
     })
 })
 
+// transfer to
+const transferToInput = document.querySelector('#mySelect-to');
+const transferToOptions = {
+    'Checking Account': document.querySelector('.transfer-to-checking.choice-transfer'),
+    'Savings Account': document.querySelector('.transfer-to-savings.choice-transfer'),
+    'Credit Card': document.querySelector('.transfer-to-credit.choice-transfer'),
+}
+transferToInput.addEventListener('change', (e)=>{
+    const selectedOption = e.target.value;
+    Object.keys(transferToOptions).forEach(accountType => {
+        transferToOptions[accountType].classList.toggle('hidden', accountType !== selectedOption);
+    })
+})
+// to hide opened accounts ( for exit window function )
+function hideAccounts(){
+    // hide all elements in transferFromOptions
+    Object.values(transferFromOptions).forEach(account => account.classList.add('hidden'));
+    Object.values(transferToOptions).forEach(account => account.classList.add('hidden'));
+
+    // Reset the dropdown selections to the default option
+    transferFromInput.value = 'Choose Account';
+    transferToInput.value = 'Choose Account';
+}
