@@ -39,12 +39,9 @@ function handleLogIn(){
     } else {
         location.replace("./myProfile.html");
     }
-    console.log('myInfo:', myInfo);
-console.log('incomes:', incomes);
 }
 
 
 
 logInButton.addEventListener('click', handleLogIn);
 
-console.log(registration)

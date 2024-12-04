@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
       <link rel="stylesheet" href="./main.css">
-       <script src="./script.js" type="module" defer></script>
+       <script src="./home.js" type="module" defer></script>
     <title>Digital Coin</title>
 </head>
 <body>
@@ -31,7 +31,7 @@
         <section class="account">
             <div class="table first-table js-tilt" data-tilt data-tilt-glare>
                 <h3>Checking Account</h3>
-                <h1><sup>$</sup>57,000</h1>
+                <h1><sup>$</sup><span id='checking-total'>57,000</span></h1>
                 <ul>
                     <li>
                         <div>
@@ -72,7 +72,7 @@
 
             <div class="table second-table js-tilt" data-tilt data-tilt-glare>
                 <h3>Savings Account</h3>
-                <h1><sup>$</sup>32,000</h1>
+                <h1><sup>$</sup><span id='savings-total'>32,000</span></h1>
                 <ul>
                     <li>
                         <div>
@@ -109,7 +109,7 @@
 
             <div class="table third-table js-tilt" data-tilt data-tilt-glare>
                 <h3>Credit Card</h3>
-                <h1><sup>$</sup>7,000</h1>
+                <h1><sup>-$</sup><span id='credit-total'>7,000</span></h1>
                 <ul>
                     <li>
                         <div>

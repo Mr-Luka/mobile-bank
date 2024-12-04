@@ -16,11 +16,13 @@ let incomes ={
     creditCard: '',
 }
 
-function generateSlotMachineNumber(account, min, max) {
-  const usDollar = new Intl.NumberFormat('en-US', { // makes numbers into us currency
+const usDollar = new Intl.NumberFormat('en-US', { // makes numbers into us currency
     style: 'currency',
     currency: 'USD',
   });
+
+function generateSlotMachineNumber(account, min, max) {
+  
   let currentNumber = Math.floor(Math.random() * (max - min + 1)) + min;
 
   const interval = setInterval(() => {
@@ -33,20 +35,26 @@ function generateSlotMachineNumber(account, min, max) {
   }, 1000); // Stop the animation after 1 second
 }
 
+if(checkingButton){
 checkingButton.addEventListener('click', ()=> {
-    generateSlotMachineNumber(checking, 1000, 100000);
+    generateSlotMachineNumber(checking, 100, 99000);
     checkingClicked = true;
-})
+});
+}
 
+if(savingsButton){
 savingsButton.addEventListener('click', ()=>{
-    generateSlotMachineNumber(savings, 1000, 100000);
+    generateSlotMachineNumber(savings, 100, 99000);
     savingsClicked = true;
 })
+}
 
+if(creditButton){
 creditButton.addEventListener('click', ()=> {
     generateSlotMachineNumber(creditMoney, 1000, 50000)
     creditClicked = true;
 })
+}
 
 // Helper function to convert formatted currency string to a number.
 function parseCurrency(amount) {
@@ -71,4 +79,9 @@ function handleClick() {
     }
 }
 
+if(finishButton){
 finishButton.addEventListener('click', handleClick);
+};
+
+
+export {generateSlotMachineNumber, usDollar};
