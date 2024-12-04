@@ -6,14 +6,20 @@ const homeName = document.querySelector('.hi h2');
 const checkingAccount = document.querySelector('#checking-total');
 const savingsAccount = document.querySelector('#savings-total');
 const credit = document.querySelector('#credit-total');
+const checkingH3Elements = document.querySelectorAll('.first-table li > div h3');
+
 
 homeName.innerText = `Hello, ${registration.firstName}`;
 
-// console.log(generateSlotMachineNumber(checkingAccount, 500, 10000))
-const monthly = document.querySelector('.table li > div:nth-child(1) h3');
-console.log(monthly)
-
-
+function displayRandomDepositsAndExpenses(){
+    const monthlyDepChecking = checkingH3Elements[0]; // First <h3>
+    const monthlyExpChecking = checkingH3Elements[1]; // Second <h3>
+    const monthlyTransChecking = checkingH3Elements[2]; // Third <h3>
+    monthlyDepChecking.innerText = generateSlotMachineNumber(monthlyDepChecking, 500, 5000);
+    monthlyExpChecking.innerText = generateSlotMachineNumber(monthlyExpChecking, 500, 5000);
+    monthlyTransChecking.innerText = generateSlotMachineNumber(monthlyTransChecking, 500, 5000)
+}
+displayRandomDepositsAndExpenses();
 
 
 function displaySpinMoney (){
