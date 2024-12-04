@@ -1,33 +1,58 @@
 import {generateSlotMachineNumber, usDollar} from './spin-for-money.js';
 const registration = JSON.parse(localStorage.getItem('registration'));
-const myInfo = JSON.parse(localStorage.getItem('myInfo'));
 const incomes = JSON.parse(localStorage.getItem('incomes'));
 const homeName = document.querySelector('.hi h2');
 const checkingAccount = document.querySelector('#checking-total');
 const savingsAccount = document.querySelector('#savings-total');
 const credit = document.querySelector('#credit-total');
 const checkingH3Elements = document.querySelectorAll('.first-table li > div h3');
+const savingsH3Elements = document.querySelectorAll('.second-table li > div h3');
+const creditH3Elements = document.querySelectorAll('.third-table li > div h3');
+
 
 
 homeName.innerText = `Hello, ${registration.firstName}`;
 
-function displayRandomDepositsAndExpenses(){
+// Function that will display random numbers for monthly deposits, expenses and transfers for Checking Account
+function displayRandomDepositFields(){
+    checkingAccount.innerText = (usDollar.format(incomes.checking).slice(1));
+
     const monthlyDepChecking = checkingH3Elements[0]; // First <h3>
     const monthlyExpChecking = checkingH3Elements[1]; // Second <h3>
     const monthlyTransChecking = checkingH3Elements[2]; // Third <h3>
     monthlyDepChecking.innerText = generateSlotMachineNumber(monthlyDepChecking, 500, 5000);
     monthlyExpChecking.innerText = generateSlotMachineNumber(monthlyExpChecking, 500, 5000);
-    monthlyTransChecking.innerText = generateSlotMachineNumber(monthlyTransChecking, 500, 5000)
+    monthlyTransChecking.innerText = generateSlotMachineNumber(monthlyTransChecking, 500, 5000);
 }
-displayRandomDepositsAndExpenses();
+displayRandomDepositFields();
 
 
-function displaySpinMoney (){
-    checkingAccount.innerText = (usDollar.format(incomes.checking).slice(1));
+// Function that will display random numbers for monthly deposits, expenses and transfers for Savings Account
+function displayRandomSavingsFields(){
     savingsAccount.innerText = (usDollar.format(incomes.savings).slice(1));
-    credit.innerText = (usDollar.format(incomes.creditCard).slice(2));
+
+    const monthlyDepChecking = savingsH3Elements[0]; // First <h3>
+    const monthlyExpChecking = savingsH3Elements[1]; // Second <h3>
+    const monthlyTransChecking = savingsH3Elements[2]; // Third <h3>
+    monthlyDepChecking.innerText = generateSlotMachineNumber(monthlyDepChecking, 500, 5000);
+    monthlyExpChecking.innerText = generateSlotMachineNumber(monthlyExpChecking, 500, 5000);
+    monthlyTransChecking.innerText = generateSlotMachineNumber(monthlyTransChecking, 500, 5000);
 }
-displaySpinMoney();
+displayRandomSavingsFields();
+
+
+// Function that will display random numbers for monthly deposits, expenses and transfers for Credit Account
+function displayRandomCreditFields(){
+    credit.innerText = (usDollar.format(incomes.creditCard).slice(2));
+
+    const monthlyDepChecking = creditH3Elements[0]; // First <h3>
+    const monthlyExpChecking = creditH3Elements[1]; // Second <h3>
+    const monthlyTransChecking = creditH3Elements[2]; // Third <h3>
+    monthlyDepChecking.innerText = generateSlotMachineNumber(monthlyDepChecking, 500, 5000);
+    monthlyExpChecking.innerText = generateSlotMachineNumber(monthlyExpChecking, 500, 5000);
+    monthlyTransChecking.innerText = generateSlotMachineNumber(monthlyTransChecking, 500, 5000);
+}
+displayRandomCreditFields()
 
 
 
