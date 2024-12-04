@@ -35,9 +35,9 @@ function handleLogIn(){
 
 
     if (myInfo && incomes) {
-        location.replace("./home.html");
+        location.replace("./html-pages/home.html");
     } else {
-        location.replace("./myProfile.html");
+        location.replace("./html-pages/myProfile.html");
     }
 }
 
