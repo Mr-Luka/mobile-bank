@@ -34,7 +34,7 @@
             </div>
         </header>
         <h1 class="pay-transfer">Pay & Transfer</h1>
-        <div class="option-blocks ">
+        <div class="option-blocks hidden">
             <div class="option-block" id="transfer">
                 <img class="pay-transfer-icons" src="../media/icons/diagram.gif" alt="transfer logo">
                 <h3>Transfer</h3>
@@ -57,17 +57,17 @@
             </div>
         </div>
 
-        <div class="transfer-choice hidden">
+        <div class="transfer-choice ">
             <h1>Choose the account to transfer from:</h1>
             <div clas="choose-the-account-from">
-            <form class="choose-account-form" action="/action_page.php" method="get">
+            <form class="choose-account-form" id="form-transfer-from" action="/action_page.php" method="get">
             <label for="browser">Choose the account to transfer from:</label>
-            <input list="browsers" name="browser" id="input-account">
-            <datalist id="browsers">
-            <option value="Checking Account">
-            <option value="Savings Account">
-            <option value="Credit Card">
-            </datalist>
+            <select id="mySelect-from"> 
+                <option value="Choose Account"></option>
+                <option value="Checking Account">Checking Account</option>
+                <option value="Savings Account">Savings Account</option>
+                <option value="Credit Card">Credit Card</option>
+            </select>
             </form>
             </div>
             <div class="option-checking choice-transfer hidden">
@@ -105,15 +105,15 @@
             </div>
             <hr>
             <div class="transfer-to">
-                <form action="/action_page.php" method="get">
+            <form action="/action_page.php" method="get">
                 <label for="browser">Choose the account to transfer to:</label>
-                <input list="browsers" name="browser" id="input-account">
-                <datalist id="browsers">
-                <option value="Checking Account">
-                <option value="Savings Account">
-                <option value="Credit Card">
-                </datalist>
-                </form>
+                <select id="mySelect-from"> 
+                    <option value="Choose Account"></option>
+                    <option value="Checking Account">Checking Account</option>
+                    <option value="Savings Account">Savings Account</option>
+                    <option value="Credit Card">Credit Card</option>
+                </select>
+            </form>
             </div>
             <div class="transfer-to-checking choice-transfer hidden">
                 <div class="title-account">
