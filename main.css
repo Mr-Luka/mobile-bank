@@ -651,7 +651,8 @@ h1.pay-transfer{
 form.choose-account-form {
     margin-bottom: 2rem;
 }
-input#input-account{
+select#mySelect-from,
+select#mySelect-to {
     padding: 1rem;
     font-size: 1rem;
     color: blue;

@@ -55,7 +55,8 @@ transferFromInput.addEventListener('change', (e)=>{
     const selectedOption = e.target.value;
     Object.keys(transferFromOptions).forEach(accountType => {
         transferFromOptions[accountType].classList.toggle('hidden', accountType !== selectedOption)
-    })
+    });
+    updateDisabledOptions(transferFromInput, transferToInput);
 })
 
 // transfer to
@@ -69,7 +70,8 @@ transferToInput.addEventListener('change', (e)=>{
     const selectedOption = e.target.value;
     Object.keys(transferToOptions).forEach(accountType => {
         transferToOptions[accountType].classList.toggle('hidden', accountType !== selectedOption);
-    })
+    });
+    updateDisabledOptions(transferToInput, transferFromInput);
 })
 // to hide opened accounts ( for exit window function )
 function hideAccounts(){
@@ -80,4 +82,21 @@ function hideAccounts(){
     // Reset the dropdown selections to the default option
     transferFromInput.value = 'Choose Account';
     transferToInput.value = 'Choose Account';
+}
+
+
+// Function to disable matching options in the opposite dropdown
+function updateDisabledOptions (changeInput, targetInput){
+    const selectedOption = changeInput.value;
+
+    // Reset all options to enabled first
+    [...targetInput.options].forEach(option => option.disabled = false);
+
+    // Disable the matching option if not default
+    if (selectedOption !== 'Choose Account'){
+        const matchingOption = [...targetInput.options].find(option => option.value === selectedOption);
+        if (matchingOption){
+            matchingOption.disabled = true;
+        }
+    }
 }
