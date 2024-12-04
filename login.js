@@ -1,4 +1,6 @@
 const registration = JSON.parse(localStorage.getItem('registration'));
+const myInfo = JSON.parse(localStorage.getItem('myInfo'));
+const incomes = JSON.parse(localStorage.getItem('incomes'));
 const logInButton = document.querySelector('#logIn-button');
 const emailInput = document.querySelector('[type="email"]');
 
@@ -14,6 +16,8 @@ function handleLogIn(){
         alert('please enter your password')
     } else if (password !== registration.password){
         alert('wrong password')
+    } else if (myInfo && incomes) {
+        location.replace("./home.html")
     } else {
         location.replace("./myProfile.html")
     }
