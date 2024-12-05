@@ -53,7 +53,7 @@ function accountAmount (accountType) {
         } else if (accountType === 'Savings Account') {
             return usDollar.format(incomes.savings).slice(1);
         } else if (accountType === 'Credit Card'){
-            return usDollar.format(incomes.creditCard).slice(2);
+            return usDollar.format(incomes.creditCard).slice(1);
         }
 }
 
@@ -103,11 +103,15 @@ function submitTransfer (accountType){
 const inputNumber = transferFromOptions[accountType].querySelector('.input-number');
 const balance = transferFromOptions[accountType].querySelector('p')
 const submit = transferFromOptions[accountType].querySelector('.input-submit');
+
 submit.addEventListener('click', ()=>{
             let amount = inputNumber.value;
+            // checking to see if the amount I entered is bigger then my available
             if (amount > parseCurrency(accountAmount(accountType))){
                 alert('Insufficient funds');
-            } else if (accountType === 'Checking Account' || accountType === 'Savings Account') {
+            }
+            
+            if (accountType === 'Checking Account' || accountType === 'Savings Account') {
                 const currentBalance = Number(parseCurrency(accountAmount(accountType)))- Number(amount);
                 const dollarAmount = usDollar.format(currentBalance);
                 if (accountType === 'Checking Account'){
@@ -116,13 +120,18 @@ submit.addEventListener('click', ()=>{
                     incomes.savings = currentBalance;
                 }
                 balance.innerText =`Available balance: ${dollarAmount}`;
-                inputNumber.value = '';
+accountAmount
             } else if (accountType === 'Credit Card'){
-                const currentDebt = Number(accountAmount(accountType) + Number(amount));
+                const currentDebt = Number(parseCurrency(accountAmount(accountType)))+ Number(amount);
                 const dollarAmountCredit = usDollar.format(currentDebt);
                 balance.innerText =`Debt balance: -${dollarAmountCredit}`;
-                inputNumber.value = '';
+                incomes.creditCard = currentDebt
             }
+            // Save updated balances to localStorage
+            localStorage.setItem('incomes', JSON.stringify(incomes));
+            const newStorage = JSON.parse(localStorage.getItem('incomes'));
+            console.log(newStorage)
+            inputNumber.value = '';
         } )
 }
 
