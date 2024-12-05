@@ -82,6 +82,8 @@ transferFromInput.addEventListener('change', (e)=>{
     updateDisabledOptions(transferFromInput, transferToInput);
 })
 
+
+
 // transfer to
 const transferToInput = document.querySelector('#mySelect-to');
 const transferToOptions = {
@@ -97,12 +99,7 @@ transferToInput.addEventListener('change', (e)=>{
             <div class="title-account">
                 <h2>${accountType}</h2>
                 <p>Available balance: $${accountAmount(accountType)}</p>
-            </div>
-            <div class="input-amount">
-                <label>Amount: $</label>
-                <input type="number" class="input-number">
-                <input class="input-submit" type="submit">
-            </div>`    
+            </div>`;    
     });
     updateDisabledOptions(transferToInput, transferFromInput);
 })
