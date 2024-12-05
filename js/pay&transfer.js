@@ -105,32 +105,28 @@ const balance = transferFromOptions[accountType].querySelector('p')
 const submit = transferFromOptions[accountType].querySelector('.input-submit');
 submit.addEventListener('click', ()=>{
             let amount = inputNumber.value;
-            if (amount > accountAmount(accountType)){
+            if (amount > parseCurrency(accountAmount(accountType))){
                 alert('Insufficient funds');
             } else if (accountType === 'Checking Account' || accountType === 'Savings Account') {
-                const currentBalance = transferConvert(accountAmount(accountType), amount);
+                const currentBalance = Number(parseCurrency(accountAmount(accountType)))- Number(amount);
                 const dollarAmount = usDollar.format(currentBalance);
+                if (accountType === 'Checking Account'){
+                    incomes.checking = currentBalance;
+                } else if (accountType === 'Savings Account'){
+                    incomes.savings = currentBalance;
+                }
                 balance.innerText =`Available balance: ${dollarAmount}`;
                 inputNumber.value = '';
             } else if (accountType === 'Credit Card'){
-                const currentDebt = transferFromCredit(accountAmount(accountType), amount)
+                const currentDebt = Number(accountAmount(accountType) + Number(amount));
                 const dollarAmountCredit = usDollar.format(currentDebt);
                 balance.innerText =`Debt balance: -${dollarAmountCredit}`;
                 inputNumber.value = '';
-                console.log(dollarAmountCredit)
             }
         } )
 }
 
-function transferConvert (availableBalance, minusAmount){
-    const currencyToNumbers = parseCurrency(availableBalance); // using parseCurrency function that I exported from spin-for-money.js
-    return currencyToNumbers - minusAmount;
-}
-function transferFromCredit (currentDebt, plusAmount) {
-    const currencyToNumbers = parseCurrency(currentDebt);
-    return currencyToNumbers + plusAmount;
-}
-console.log(transferFromCredit('$100.00', 500));
+
 
 
 
