@@ -88,10 +88,9 @@ transferFromInput.addEventListener('change', (e)=>{
                 alert('Insufficient funds');
             } else {
                 // transferAmount(accountType, selectedOption);
-                const dollarAmount = usDollar.format(amount);
-                // const balance = inputNumber.querySelector('p');
-                // balance.innerHTML = `Available balance: $${accountAmount(accountType) - amount}`;
-                console.log(balance)
+                const currentBalance = transferConvert(accountAmount(accountType), amount);
+                const dollarAmount = usDollar.format(currentBalance);
+                balance.innerText =`Available balance: ${dollarAmount}`;
             }
             console.log(amount)
         } )
