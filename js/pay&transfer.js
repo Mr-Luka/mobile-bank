@@ -1,3 +1,5 @@
+import {generateSlotMachineNumber, usDollar} from './spin-for-money.js';
+const incomes = JSON.parse(localStorage.getItem('incomes'));
 const optionBlocks = document.querySelectorAll('.option-block');
 const optionBlocksWindow = document.querySelector('.option-blocks');
 const transferChoice = document.querySelector('.transfer-choice')
@@ -42,7 +44,18 @@ cryptoBlock.addEventListener('click', openCrypto);
 // END of the click event segment
 
 
+
+
             // T R A N S F E R   W I N D O W
+function accountAmount (accountType) {
+        if (accountType === 'Checking Account') {
+            return usDollar.format(incomes.checking).slice(1);
+        } else if (accountType === 'Savings Account') {
+            return usDollar.format(incomes.savings).slice(1);
+        } else if (accountType === 'Credit Card'){
+            return usDollar.format(incomes.creditCard).slice(2);
+        }
+}
 
 const transferFromInput = document.querySelector('#mySelect-from');
 const transferFromOptions = {
@@ -54,7 +67,17 @@ const transferFromOptions = {
 transferFromInput.addEventListener('change', (e)=>{
     const selectedOption = e.target.value;
     Object.keys(transferFromOptions).forEach(accountType => {
-        transferFromOptions[accountType].classList.toggle('hidden', accountType !== selectedOption)
+        transferFromOptions[accountType].classList.toggle('hidden', accountType !== selectedOption);
+        transferFromOptions[accountType].innerHTML = `
+            <div class="title-account">
+                <h2>${accountType}</h2>
+                <p>Available balance: $${accountAmount(accountType)}</p>
+            </div>
+            <div class="input-amount">
+                <label>Amount: $</label>
+                <input type="number" class="input-number">
+                <input class="input-submit" type="submit">
+            </div>`
     });
     updateDisabledOptions(transferFromInput, transferToInput);
 })
@@ -69,7 +92,17 @@ const transferToOptions = {
 transferToInput.addEventListener('change', (e)=>{
     const selectedOption = e.target.value;
     Object.keys(transferToOptions).forEach(accountType => {
-        transferToOptions[accountType].classList.toggle('hidden', accountType !== selectedOption);
+        transferToOptions[accountType].classList.toggle('hidden', accountType !== selectedOption);  
+        transferToOptions[accountType].innerHTML = `
+            <div class="title-account">
+                <h2>${accountType}</h2>
+                <p>Available balance: $${accountAmount(accountType)}</p>
+            </div>
+            <div class="input-amount">
+                <label>Amount: $</label>
+                <input type="number" class="input-number">
+                <input class="input-submit" type="submit">
+            </div>`    
     });
     updateDisabledOptions(transferToInput, transferFromInput);
 })
