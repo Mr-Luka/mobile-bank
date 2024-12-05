@@ -1,4 +1,4 @@
-import {generateSlotMachineNumber, usDollar} from './spin-for-money.js';
+import {generateSlotMachineNumber, usDollar, parseCurrency} from './spin-for-money.js';
 const incomes = JSON.parse(localStorage.getItem('incomes'));
 const optionBlocks = document.querySelectorAll('.option-block');
 const optionBlocksWindow = document.querySelector('.option-blocks');
@@ -63,6 +63,7 @@ const transferFromOptions = {
     'Savings Account': document.querySelector('.option-savings.choice-transfer'),
     'Credit Card': document.querySelector('.option-credit.choice-transfer'),
 }
+
 // transfer from
 transferFromInput.addEventListener('change', (e)=>{
     const selectedOption = e.target.value;
@@ -77,10 +78,34 @@ transferFromInput.addEventListener('change', (e)=>{
                 <label>Amount: $</label>
                 <input type="number" class="input-number">
                 <input class="input-submit" type="submit">
-            </div>`
+            </div>`;
+        const inputNumber = transferFromOptions[accountType].querySelector('.input-number');
+        const balance = transferFromOptions[accountType].querySelector('p')
+        const submit = transferFromOptions[accountType].querySelector('.input-submit');
+        submit.addEventListener('click', ()=>{
+            let amount = inputNumber.value;
+            if (amount > accountAmount(accountType)){
+                alert('Insufficient funds');
+            } else {
+                // transferAmount(accountType, selectedOption);
+                const dollarAmount = usDollar.format(amount);
+                // const balance = inputNumber.querySelector('p');
+                // balance.innerHTML = `Available balance: $${accountAmount(accountType) - amount}`;
+                console.log(balance)
+            }
+            console.log(amount)
+        } )
+           
     });
     updateDisabledOptions(transferFromInput, transferToInput);
 })
+
+function transferConvert (availableBalance, minusAmount){
+    const currencyToNumbers = parseCurrency(availableBalance); // using parseCurrency function that I exported from spin-for-money.js
+    return currencyToNumbers - minusAmount;
+}
+
+
 
 
 

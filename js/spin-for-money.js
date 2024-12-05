@@ -84,4 +84,4 @@ finishButton.addEventListener('click', handleClick);
 };
 
 
-export {generateSlotMachineNumber, usDollar};
+export {generateSlotMachineNumber, usDollar, parseCurrency};
