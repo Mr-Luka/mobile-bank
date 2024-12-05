@@ -661,6 +661,16 @@ select#mySelect-to {
     border: 1px solid white;
     margin-left: 1rem;
 }
+.title-account p{
+    text-align: center;
+    font-size: 1.4rem;
+    padding: 0.6rem;
+    color: white;
+    border-radius: 15px;
+    background-color: rgba(47, 93, 29, 0.744);
+    box-shadow: 10px 22px 32px 10px rgba(179, 179, 179, 0.522);
+}
+
 input.input-submit {
     margin: 1rem 0 0 1rem;
     font-weight: 800;
@@ -693,6 +703,9 @@ input.input-submit:hover {
 }
 input.input-number{
     font-size: 1.3rem;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 10px 22px 32px 10px rgba(179, 179, 179, 0.522);
 }
 
 .send-recieve-div{
