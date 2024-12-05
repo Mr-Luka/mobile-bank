@@ -69,7 +69,8 @@ transferFromInput.addEventListener('change', (e)=>{
     const selectedOption = e.target.value;
     Object.keys(transferFromOptions).forEach(accountType => {
         transferFromOptions[accountType].classList.toggle('hidden', accountType !== selectedOption);
-        transferFromOptions[accountType].innerHTML = `
+        if (accountType === 'Checking Account' || accountType === 'Savings Account'){
+            transferFromOptions[accountType].innerHTML = `
             <div class="title-account">
                 <h2>${accountType}</h2>
                 <p>Available balance: $${accountAmount(accountType)}</p>
@@ -79,30 +80,57 @@ transferFromInput.addEventListener('change', (e)=>{
                 <input type="number" class="input-number">
                 <input class="input-submit" type="submit">
             </div>`;
-        const inputNumber = transferFromOptions[accountType].querySelector('.input-number');
-        const balance = transferFromOptions[accountType].querySelector('p')
-        const submit = transferFromOptions[accountType].querySelector('.input-submit');
-        submit.addEventListener('click', ()=>{
-            let amount = inputNumber.value;
-            if (amount > accountAmount(accountType)){
-                alert('Insufficient funds');
-            } else {
-                // transferAmount(accountType, selectedOption);
-                const currentBalance = transferConvert(accountAmount(accountType), amount);
-                const dollarAmount = usDollar.format(currentBalance);
-                balance.innerText =`Available balance: ${dollarAmount}`;
-            }
-            console.log(amount)
-        } )
+        submitTransfer(accountType);
+        } else if (accountType === "Credit Card"){
+            transferFromOptions[accountType].innerHTML = `
+            <div class="title-account">
+                <h2>${accountType}</h2>
+                <p>Debt balance: -$${accountAmount(accountType)}</p>
+            </div>
+            <div class="input-amount">
+                <label>Amount: $</label>
+                <input type="number" class="input-number">
+                <input class="input-submit" type="submit">
+            </div>`;
+        submitTransfer(accountType);
+        }
            
     });
     updateDisabledOptions(transferFromInput, transferToInput);
 })
+// function that will capture the input number of the choosen account and after submit deduct it from the available balance
+function submitTransfer (accountType){
+const inputNumber = transferFromOptions[accountType].querySelector('.input-number');
+const balance = transferFromOptions[accountType].querySelector('p')
+const submit = transferFromOptions[accountType].querySelector('.input-submit');
+submit.addEventListener('click', ()=>{
+            let amount = inputNumber.value;
+            if (amount > accountAmount(accountType)){
+                alert('Insufficient funds');
+            } else if (accountType === 'Checking Account' || accountType === 'Savings Account') {
+                const currentBalance = transferConvert(accountAmount(accountType), amount);
+                const dollarAmount = usDollar.format(currentBalance);
+                balance.innerText =`Available balance: ${dollarAmount}`;
+                inputNumber.value = '';
+            } else if (accountType === 'Credit Card'){
+                const currentDebt = transferFromCredit(accountAmount(accountType), amount)
+                const dollarAmountCredit = usDollar.format(currentDebt);
+                balance.innerText =`Debt balance: -${dollarAmountCredit}`;
+                inputNumber.value = '';
+                console.log(dollarAmountCredit)
+            }
+        } )
+}
 
 function transferConvert (availableBalance, minusAmount){
     const currencyToNumbers = parseCurrency(availableBalance); // using parseCurrency function that I exported from spin-for-money.js
     return currencyToNumbers - minusAmount;
 }
+function transferFromCredit (currentDebt, plusAmount) {
+    const currencyToNumbers = parseCurrency(currentDebt);
+    return currencyToNumbers + plusAmount;
+}
+console.log(transferFromCredit('$100.00', 500));
 
 
 
