@@ -719,10 +719,10 @@ input.input-number{
 
 .send-recieve-div{
     backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.359);
+    background-color: rgba(255, 255, 255, 0.359);
     width: auto;
     height: 100%;
-    padding: 2rem;
+    padding-bottom: 5rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -732,8 +732,9 @@ input.input-number{
 }
 
 .send-or-recieve {
-    margin-bottom: 0rem;
+    margin: 5rem 0 5rem 0;
 }
+
 
 .exit-ZeX {
     position: absolute;

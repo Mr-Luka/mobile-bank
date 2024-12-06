@@ -40,7 +40,7 @@ function validRegisterInput (name, lastName, email, password, passwordMatch){
   
     localStorage.setItem('registration', JSON.stringify(registration))
   
-    location.replace("./login.html")
+    location.replace("../login.html")
   }
 
 }
