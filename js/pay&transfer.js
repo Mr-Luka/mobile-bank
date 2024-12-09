@@ -1,5 +1,5 @@
 import {generateSlotMachineNumber, usDollar, parseCurrency} from './spin-for-money.js';
-const incomes = JSON.parse(localStorage.getItem('incomes'));
+let incomes = JSON.parse(localStorage.getItem('incomes'));
 const optionBlocks = document.querySelectorAll('.option-block');
 const optionBlocksWindow = document.querySelector('.option-blocks');
 const transferChoice = document.querySelector('.transfer-choice')
@@ -12,6 +12,7 @@ const zeXBlock = optionBlocks[1];
 const cryptoBlock = optionBlocks[2];
 let transferAmount = [];
 
+
 // in case we open this page without generating the amount before, this will be the default
 if (!incomes) {
     localStorage.setItem('incomes', JSON.stringify({
@@ -19,6 +20,11 @@ if (!incomes) {
         savings: 1000,
         creditCard: 1000
     }));
+}
+
+// Refresh Incomes from localStorage
+function refreshIncomes() {
+    return JSON.parse(localStorage.getItem('incomes'));
 }
 
 
@@ -55,10 +61,7 @@ cryptoBlock.addEventListener('click', openCrypto);
 // END of the click event segment
 
 
-// Refresh Incomes from localStorage
-function refreshIncomes() {
-    return JSON.parse(localStorage.getItem('incomes'));
-}
+
 
             // T R A N S F E R   W I N D O W
 function accountAmount (accountType) {
@@ -80,6 +83,8 @@ const transferFromOptions = {
 
 // transfer from
 transferFromInput.addEventListener('change', (e)=>{
+    // Refresh the incomes object to get the latest balances
+    incomes = refreshIncomes();
     const selectedOption = e.target.value;
     Object.keys(transferFromOptions).forEach(accountType => {
         transferFromOptions[accountType].classList.toggle('hidden', accountType !== selectedOption);
@@ -148,16 +153,12 @@ submit.addEventListener('click', ()=>{
             // Save updated balances to localStorage
             localStorage.setItem('incomes', JSON.stringify(incomes));
             const newStorage = JSON.parse(localStorage.getItem('incomes'));
+            
+            // Refresh incomes to get the latest balances
+            incomes = refreshIncomes();
+            refreshTransferToOptions()
             inputNumber.value = '';
-
-            // Update the transfer-to section with new balance
-            Object.keys(transferToOptions).forEach(type => {
-            transferToOptions[type].innerHTML = `
-                <div class="title-account">
-                    <h2>${type}</h2>
-                    <p>Available balance: ${convertTransfer(type)}</p>
-                </div>`;  
-            });
+  
         });
         
 }
@@ -174,6 +175,17 @@ function convertTransfer(accountType){
     return usDollar.format(newBalance)
 }
 
+// Function to refresh Transfer-To options with the latest balances
+function refreshTransferToOptions() {
+    Object.keys(transferToOptions).forEach(type => {
+            transferToOptions[type].innerHTML = `
+                <div class="title-account">
+                    <h2>${type}</h2>
+                    <p>Available balance: ${convertTransfer(type)}</p>
+                </div>`;  
+            });
+}
+
 
 
 
@@ -186,6 +198,8 @@ const transferToOptions = {
     'Credit Card': document.querySelector('.transfer-to-credit.choice-transfer'),
 }
 transferToInput.addEventListener('change', (e)=>{
+    // Refresh the incomes object to get the latest balances
+    incomes = refreshIncomes();
     const selectedOption = e.target.value;
     Object.keys(transferToOptions).forEach(accountType => {
         transferToOptions[accountType].classList.toggle('hidden', accountType !== selectedOption);  
