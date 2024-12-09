@@ -12,6 +12,16 @@ const zeXBlock = optionBlocks[1];
 const cryptoBlock = optionBlocks[2];
 let transferAmount = [];
 
+// in case we open this page without generating the amount before, this will be the default
+if (!incomes) {
+    localStorage.setItem('incomes', JSON.stringify({
+        checking: 1000,
+        savings: 1000,
+        creditCard: 1000
+    }));
+}
+
+
 // Click events for clicking the option blocks like:
 // transfer, send-recieve, crypto ...
 function exitWindow (){
