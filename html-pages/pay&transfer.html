@@ -142,17 +142,17 @@
             <div class="transfer-choice send-or-recieve">
                 <h1>Choose the account to transfer from:</h1>
                 <div clas="choose-the-account-from">
-                <form class="choose-account-form" action="/action_page.php" method="get">
-                <label for="browser">Choose the account to transfer from:</label>
-                <input list="browsers" name="browser" id="input-account">
-                <datalist id="browsers">
-                <option value="Checking Account">
-                <option value="Savings Account">
-                <option value="Credit Card">
-                </datalist>
+                <form class="choose-account-form" id="form-transfer-from" action="/action_page.php" method="get">
+                <label class="label-title" for="browser">Choose the account to transfer from:</label>
+                <select id="mySelect-from"> 
+                    <option value="Choose Account"></option>
+                    <option value="Checking Account">Checking Account</option>
+                    <option value="Savings Account">Savings Account</option>
+                    <option value="Credit Card">Credit Card</option>
+                </select>
                 </form>
                 </div>
-                <div class="option-checking choice-transfer hidden">
+                <div class="option-checking choice-transfer ">
                     <div class="title-account">
                         <h2>Checking Account</h2>
                         <p>Available balance: $1,000.00</p>
@@ -160,7 +160,6 @@
                     <div class="input-amount">
                         <label>Amount: $</label>
                         <input type="number" class="input-number">
-                        <input class="input-submit" type="submit">
                     </div>
                 </div>
                 <div class="option-savings choice-transfer hidden">
@@ -171,7 +170,6 @@
                     <div class="input-amount">
                         <label>Amount: $</label>
                         <input type="number" class="input-number">
-                        <input class="input-submit" type="submit">
                     </div>
                 </div>
                 <div class="option-credit choice-transfer hidden">
@@ -182,7 +180,6 @@
                     <div class="input-amount">
                         <label>Amount: $</label>
                         <input type="number" class="input-number">
-                        <input class="input-submit" type="submit">
                     </div>
                 </div>
             </div>
@@ -191,13 +188,16 @@
                 <div clas="choose-the-account-from">
                 <form class="choose-account-form">
                 <label for="browser">Choose the account email to transfer to:</label>
-                <input  name="email" type="email"  placeholder="example@gmail.com" id="input-account">
+                <input  name="email" type="email"  placeholder="example@gmail.com" id="input-email">
                 <datalist id="emails">
                 <option value="lala99@gmail.com">
                 <option value="roro@yahoo.com">
                 <option value="jfiefj@gmail.com">
                 </datalist>
                 </form>
+                <div class="button-send">
+                    <button id="send-money-email">Send</button>
+                </div>
                 </div>
             </div>
             <button class="exit-ZeX zex-1">X</button>

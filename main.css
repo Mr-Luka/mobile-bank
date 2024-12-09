@@ -735,6 +735,39 @@ input.input-number{
     margin: 5rem 0 5rem 0;
 }
 
+input#input-email{
+    font-size: 1.3rem;
+    border-radius: 5px;
+    border: 1px solid rgba(55, 198, 110, 0.412);
+    margin-left: 1rem;
+    text-align: center;
+}
+
+.transfer-choice label {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+.button-send {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#send-money-email{
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 800;
+    border-radius: 20px;
+    border: 2px solid rgb(55, 150, 198);
+    background-color: rgba(255, 255, 255, 0);
+}
+#send-money-email:hover {
+    scale: 1.1;
+    border: 2px solid rgb(55, 198, 110);
+    box-shadow: 0px 15px 30px 0px rgb(106, 188, 161);
+    transition: 0.3s;
+}
+
 
 .exit-ZeX {
     position: absolute;
