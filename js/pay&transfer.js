@@ -10,6 +10,7 @@ const cryptoWindow = document.querySelector('.convert-crypto');
 const transferBlock = optionBlocks[0];
 const zeXBlock = optionBlocks[1];
 const cryptoBlock = optionBlocks[2];
+let transferAmount = [];
 
 // Click events for clicking the option blocks like:
 // transfer, send-recieve, crypto ...
@@ -105,10 +106,11 @@ const balance = transferFromOptions[accountType].querySelector('p')
 const submit = transferFromOptions[accountType].querySelector('.input-submit');
 
 submit.addEventListener('click', ()=>{
-            let amount = inputNumber.value;
+            let amount = Number(inputNumber.value);
             // checking to see if the amount I entered is bigger then my available
             if (amount > parseCurrency(accountAmount(accountType))){
                 alert('Insufficient funds');
+                return;
             }
             
             if (accountType === 'Checking Account' || accountType === 'Savings Account') {
@@ -120,22 +122,45 @@ submit.addEventListener('click', ()=>{
                     incomes.savings = currentBalance;
                 }
                 balance.innerText =`Available balance: ${dollarAmount}`;
-accountAmount
             } else if (accountType === 'Credit Card'){
                 const currentDebt = Number(parseCurrency(accountAmount(accountType)))+ Number(amount);
                 const dollarAmountCredit = usDollar.format(currentDebt);
                 balance.innerText =`Debt balance: -${dollarAmountCredit}`;
-                incomes.creditCard = currentDebt
+                incomes.creditCard = currentDebt;
             }
+            transferAmount = Number(amount);
+
+            
             // Save updated balances to localStorage
             localStorage.setItem('incomes', JSON.stringify(incomes));
             const newStorage = JSON.parse(localStorage.getItem('incomes'));
-            console.log(newStorage)
             inputNumber.value = '';
-        } )
+
+            // Update the transfer-to section with new balance
+            Object.keys(transferToOptions).forEach(type => {
+            transferToOptions[type].innerHTML = `
+                <div class="title-account">
+                    <h2>${type}</h2>
+                    <p>Available balance: ${convertTransfer(type)}</p>
+                </div>`;  
+            });
+        });
+        
 }
 
-
+function convertTransfer(accountType){
+    const oldBalanceNumber =  Number(parseCurrency(accountAmount(accountType)));
+    const newAddedAmount = Number(transferAmount);
+    let newBalance;
+    if (accountType === 'Checking Account' || accountType === 'Savings Account'){
+        newBalance = oldBalanceNumber + newAddedAmount;
+        console.log(newBalance)
+    } else if ( accountType === 'Credit Card'){
+        newBalance = oldBalanceNumber - newAddedAmount;
+        console.log('added balnce of:', transferAmount, oldBalanceNumber, newAddedAmount)
+    }
+    return usDollar.format(newBalance)
+}
 
 
 
@@ -156,10 +181,14 @@ transferToInput.addEventListener('change', (e)=>{
             <div class="title-account">
                 <h2>${accountType}</h2>
                 <p>Available balance: $${accountAmount(accountType)}</p>
-            </div>`;    
+            </div>`;  
     });
     updateDisabledOptions(transferToInput, transferFromInput);
 })
+
+
+
+
 // to hide opened accounts ( for exit window function )
 function hideAccounts(){
     // hide all elements in transferFromOptions
