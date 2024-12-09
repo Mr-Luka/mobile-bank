@@ -55,7 +55,10 @@ cryptoBlock.addEventListener('click', openCrypto);
 // END of the click event segment
 
 
-
+// Refresh Incomes from localStorage
+function refreshIncomes() {
+    return JSON.parse(localStorage.getItem('incomes'));
+}
 
             // T R A N S F E R   W I N D O W
 function accountAmount (accountType) {
@@ -131,7 +134,8 @@ submit.addEventListener('click', ()=>{
                 } else if (accountType === 'Savings Account'){
                     incomes.savings = currentBalance;
                 }
-                balance.innerText =`Available balance: ${dollarAmount}`;
+            balance.innerText =`Available balance: ${dollarAmount}`;
+            
             } else if (accountType === 'Credit Card'){
                 const currentDebt = Number(parseCurrency(accountAmount(accountType)))+ Number(amount);
                 const dollarAmountCredit = usDollar.format(currentDebt);
@@ -164,10 +168,8 @@ function convertTransfer(accountType){
     let newBalance;
     if (accountType === 'Checking Account' || accountType === 'Savings Account'){
         newBalance = oldBalanceNumber + newAddedAmount;
-        console.log(newBalance)
     } else if ( accountType === 'Credit Card'){
         newBalance = oldBalanceNumber - newAddedAmount;
-        console.log('added balnce of:', transferAmount, oldBalanceNumber, newAddedAmount)
     }
     return usDollar.format(newBalance)
 }
