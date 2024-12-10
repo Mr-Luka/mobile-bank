@@ -55,6 +55,7 @@ exitOptionWindow.forEach(exit => {
     exit.addEventListener('click', exitWindow);
 });
 
+// event listeners to open each transfer option from pay&transfer
 transferBlock.addEventListener('click', openTransfer);
 zeXBlock.addEventListener('click', openZeX);
 cryptoBlock.addEventListener('click', openCrypto);
@@ -162,7 +163,7 @@ submit.addEventListener('click', ()=>{
         });
         
 }
-
+// Function that will check for the account type and add or deduct the amount and convert it into $
 function convertTransfer(accountType){
     const oldBalanceNumber =  Number(parseCurrency(accountAmount(accountType)));
     const newAddedAmount = Number(transferAmount);
@@ -187,9 +188,6 @@ function refreshTransferToOptions() {
 }
 
 
-
-
-
 // transfer to
 const transferToInput = document.querySelector('#mySelect-to');
 const transferToOptions = {
@@ -212,9 +210,6 @@ transferToInput.addEventListener('change', (e)=>{
     updateDisabledOptions(transferToInput, transferFromInput);
 })
 
-
-
-
 // to hide opened accounts ( for exit window function )
 function hideAccounts(){
     // hide all elements in transferFromOptions
@@ -225,7 +220,6 @@ function hideAccounts(){
     transferFromInput.value = 'Choose Account';
     transferToInput.value = 'Choose Account';
 }
-
 
 // Function to disable matching options in the opposite dropdown
 function updateDisabledOptions (changeInput, targetInput){
@@ -242,3 +236,16 @@ function updateDisabledOptions (changeInput, targetInput){
         }
     }
 }
+
+
+//              ZeX - SEND OR RECIEVE 
+const transferFromForEmail = document.querySelectoru('#mySelect-from-ZeX');
+
+transferFromForEmail.addEventListener('change', e=>{
+    transferFromOptions.forEach(accountType => {
+        accountType.classList.toggle('hidden', accountType !== e.target.value);
+        accountType.innerHTML = `
+            
+        `;
+    })
+})

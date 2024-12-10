@@ -653,7 +653,8 @@ form.choose-account-form {
     margin-bottom: 2rem;
 }
 select#mySelect-from,
-select#mySelect-to {
+select#mySelect-to,
+select#mySelect-from-ZeX {
     padding: 1rem;
     font-size: 1rem;
     color: blue;
