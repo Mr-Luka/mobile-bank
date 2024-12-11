@@ -239,13 +239,26 @@ function updateDisabledOptions (changeInput, targetInput){
 
 
 //              ZeX - SEND OR RECIEVE 
-const transferFromForEmail = document.querySelectoru('#mySelect-from-ZeX');
+const transferFromForEmail = document.querySelector('#mySelect-from-ZeX');
+const transferFromZeX = {
+    'Checking Account': document.querySelector('.option-checking-zex.choice-transfer'),
+    'Savings Account': document.querySelector('.option-savings-zex.choice-transfer'),
+    'Credit Card': document.querySelector('.option-credit-zex.choice-transfer'),
+}
 
-transferFromForEmail.addEventListener('change', e=>{
-    transferFromOptions.forEach(accountType => {
-        accountType.classList.toggle('hidden', accountType !== e.target.value);
-        accountType.innerHTML = `
-            
-        `;
+transferFromForEmail.addEventListener('change', e =>{
+    incomes = refreshIncomes();
+    const selectedOption = e.target.value;
+    Object.keys(transferFromZeX).forEach(accountType => {
+        transferFromZeX[accountType].classList.toggle('hidden', accountType !== selectedOption);
+        transferFromZeX[accountType].innerHTML = `
+            <div class="title-account">
+                <h2>${accountType}</h2>
+                <p>Available balance: $${accountAmount(accountType)}</p>
+            </div>
+            <div class="input-amount">
+                <label>Amount: $</label>
+                <input type="number" class="input-number">
+            </div>`;
     })
 })
