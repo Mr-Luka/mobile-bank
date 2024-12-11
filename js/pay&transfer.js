@@ -340,3 +340,40 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
         
+
+// CONVERT TO CRYPTO
+const transferFromForCrypto = document.querySelector('#mySelect-from-crypto')
+const accountForCrypto = {
+    'Checking Account': document.querySelector('.option-checking.available-for-crypto'),
+    'Savings Account': document.querySelector('.option-savings.available-for-crypto'),
+    'Credit Card': document.querySelector('.option-credit.available-for-crypto'),
+
+}
+transferFromForCrypto.addEventListener('change', (e)=>{
+    incomes = refreshIncomes();
+    const selectedOption = e.target.value;
+    Object.keys(accountForCrypto).forEach(accountType => {
+        accountForCrypto[accountType].classList.toggle('hidden', accountType !== selectedOption);
+            if (accountType === 'Checking Account' || accountType === 'Savings Account'){
+            accountForCrypto[accountType].innerHTML = `
+            <div class="title-account">
+                <h2>${accountType}</h2>
+                <p>Available balance: $${accountAmount(accountType)}</p>
+            </div>
+            <div class="input-amount">
+                <label>Amount: $</label>
+                <input type="number" class="input-number">
+            </div>`;
+        } else if (accountType === "Credit Card"){
+            accountForCrypto[accountType].innerHTML = `
+            <div class="title-account">
+                <h2>${accountType}</h2>
+                <p>Debt balance: -$${accountAmount(accountType)}</p>
+            </div>
+            <div class="input-amount">
+                <label>Amount: $</label>
+                <input type="number" class="input-number">
+            </div>`;
+        }       
+    });
+})

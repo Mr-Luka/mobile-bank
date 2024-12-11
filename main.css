@@ -654,7 +654,8 @@ form.choose-account-form {
 }
 select#mySelect-from,
 select#mySelect-to,
-select#mySelect-from-ZeX {
+select#mySelect-from-ZeX,
+select#mySelect-from-crypto {
     padding: 1rem;
     font-size: 1rem;
     color: blue;
@@ -663,6 +664,8 @@ select#mySelect-from-ZeX {
     border: 1px solid white;
     margin-left: 1rem;
 }
+
+
 .title-account p{
     text-align: center;
     font-size: 1.4rem;
@@ -711,7 +714,8 @@ input.input-submit:hover {
     font-size: 1.5rem;
     font-weight: 600;
 }
-input.input-number{
+input.input-number,
+input.crypto-input-account{
     font-size: 1.3rem;
     border-radius: 5px;
     border: none;
@@ -809,6 +813,13 @@ input#input-email{
     justify-content: center;
     font-size: 1.4rem;
     text-align: center;
+}
+
+label.label-crypto{
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-left: 1rem;
 }
 
 .exit-crypto{

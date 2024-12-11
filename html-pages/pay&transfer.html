@@ -207,44 +207,20 @@
             <div class="choose-account-for-crypto">
                 <div clas="choose-the-account-from">
                 <form class="choose-account-form" action="/action_page.php" method="get">
-                <label for="browser">Choose the account:</label><br>
-                <input list="browsers" name="browser" id="input-account" class="crypto-input-account">
-                <datalist id="browsers">
-                <option value="Checking Account">
-                <option value="Savings Account">
-                <option value="Credit Card">
-                </datalist>
+                <label class="label-crypto" for="browser">Choose the account:</label><br>
+                <select id="mySelect-from-crypto"> 
+                    <option value="Choose Account"></option>
+                    <option value="Checking Account">Checking Account</option>
+                    <option value="Savings Account">Savings Account</option>
+                    <option value="Credit Card">Credit Card</option>
+                </select>
                 </form>
                 </div>
-                <div class="option-checking available-for-crypto hidden">
-                    <div class="title-account">
-                        <h2>Checking Account</h2>
-                        <p>Available balance: $1,000.00</p>
-                    </div>
-                    <div class="input-amount-crypto">
-                        <label>Amount: $</label><br>
-                        <input type="number" class="input-number" placeholder="$">
-                    </div>
+                <div class="option-checking available-for-crypto hidden">   
                 </div>
-                <div class="option-savings available-for-crypto hidden">
-                    <div class="title-account">
-                        <h2>Savings Account</h2>
-                        <p>Available balance: $1,000.00</p>
-                    </div>
-                    <div class="input-amount-crypto">
-                        <label>Amount: $</label><br>
-                        <input type="number" class="input-number" placeholder="$">
-                    </div>
+                <div class="option-savings available-for-crypto hidden">  
                 </div>
                 <div class="option-credit available-for-crypto ">
-                    <div class="title-account">
-                        <h2>Credit Card</h2>
-                        <p>Available balance: $1,000.00</p>
-                    </div>
-                    <div class="input-amount-crypto">
-                        <label>Amount: $</label><br>
-                        <input type="number" class="input-number" placeholder="$">
-                    </div>
                 </div>
                 <button class="exit-ZeX exit-crypto">X</button>
             </div>
