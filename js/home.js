@@ -8,6 +8,7 @@ const credit = document.querySelector('#credit-total');
 const checkingH3Elements = document.querySelectorAll('.first-table li > div h3');
 const savingsH3Elements = document.querySelectorAll('.second-table li > div h3');
 const creditH3Elements = document.querySelectorAll('.third-table li > div h3');
+const transferButton = document.querySelectorAll('.button-transfer');
 
 function refreshIncomes() {
     return JSON.parse(localStorage.getItem('incomes'));
@@ -58,7 +59,11 @@ function displayRandomCreditFields(){
 displayRandomCreditFields()
 
 
-
+transferButton.forEach(button=>{
+  button.addEventListener('click', ()=>{
+  location.replace("./pay&transfer.html")
+  })
+})
 
 
 // Tilt windows for home page 3 accounts
