@@ -264,7 +264,6 @@ transferFromForEmail.addEventListener('change', e =>{
                 <label>Amount: $</label>
                 <input type="number" class="input-number">
             </div>`;
-            sendMoneyToEmail (accountType)
         } else if (accountType === "Credit Card"){
             transferFromZeX[accountType].innerHTML = `
             <div class="title-account">
@@ -275,68 +274,68 @@ transferFromForEmail.addEventListener('change', e =>{
                 <label>Amount: $</label>
                 <input type="number" class="input-number">
             </div>`;
-            sendMoneyToEmail (accountType)
         }       
     });
 })
 
-function sendMoneyToEmail (accountType) {
-    const inputMoney = transferFromZeX[accountType].querySelector('.input-number');
-    const balance = transferFromZeX[accountType].querySelector('p');
+// Add the event listener once when the script loads
+sendMoneyToEmailButton.addEventListener('click', handleSendMoney);
+
+function handleSendMoney() {
+    const selectedAccountType = transferFromForEmail.value;
+    const inputMoney = transferFromZeX[selectedAccountType]?.querySelector('.input-number');
+    const balance = transferFromZeX[selectedAccountType]?.querySelector('p');
     const inputEmail = document.querySelector('#input-email');
+    const email = inputEmail.value.trim();
+    const amount = Number(inputMoney?.value);
 
-    // Remove any existing listener to prevent duplication
-    sendMoneyToEmailButton.removeEventListener('click', handleSendMoney);
+    // Validate email input
+    if (!email || !isValidEmail(email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
 
-    function handleSendMoney(){
-        let amount = Number(inputMoney.value);
-        let email = inputEmail.value.trim();
+    // Validate amount input
+    if (!amount || amount <= 0) {
+        alert('Please enter a valid transfer amount.');
+        return;
+    }
 
-        if(!email){
-            alert('Please enter your email address');
+    // Check if the amount exceeds available balance
+    if (amount > parseCurrency(accountAmount(selectedAccountType))) {
+        alert('Insufficient funds.');
+        return;
+    }
+
+    // Process transfer based on account type
+    if (selectedAccountType === 'Checking Account' || selectedAccountType === 'Savings Account') {
+        const currentBalance = Number(parseCurrency(accountAmount(selectedAccountType))) - amount;
+        const dollarAmount = usDollar.format(currentBalance);
+        balance.innerText = `Available balance: ${dollarAmount}`;
+
+        if (selectedAccountType === 'Checking Account') {
+            incomes.checking = currentBalance;
+        } else if (selectedAccountType === 'Savings Account') {
+            incomes.savings = currentBalance;
         }
-        if (!isValidEmail(email)){
-            alert('Invalid email address');
-        }
-        // checking to see if the amount I entered is bigger then my available
-        if (amount > parseCurrency(accountAmount(accountType))){
-            alert('Insufficient funds');
-            return;
-        }
-            
-        if (accountType === 'Checking Account' || accountType === 'Savings Account') {
-            const currentBalance = Number(parseCurrency(accountAmount(accountType)))- Number(amount);
-            const dollarAmount = usDollar.format(currentBalance);
-            if (accountType === 'Checking Account'){
-                incomes.checking = currentBalance;
-            } else if (accountType === 'Savings Account'){
-                incomes.savings = currentBalance;
-            }
-            balance.innerText =`Available balance: ${dollarAmount}`;
-            
-            } else if (accountType === 'Credit Card'){
-                const currentDebt = Number(parseCurrency(accountAmount(accountType)))+ Number(amount);
-                const dollarAmountCredit = usDollar.format(currentDebt);
-                balance.innerText =`Debt balance: -${dollarAmountCredit}`;
-                incomes.creditCard = currentDebt;
-            }
-            transferAmount = Number(amount);
+    } else if (selectedAccountType === 'Credit Card') {
+        const currentDebt = Number(parseCurrency(accountAmount(selectedAccountType))) + amount;
+        const dollarAmountCredit = usDollar.format(currentDebt);
+        balance.innerText = `Debt balance: -${dollarAmountCredit}`;
+        incomes.creditCard = currentDebt;
+    }
 
-            
-            // Save updated balances to localStorage
-            localStorage.setItem('incomes', JSON.stringify(incomes));
-            const newStorage = JSON.parse(localStorage.getItem('incomes'));
-            
-            // Refresh incomes to get the latest balances
-            incomes = refreshIncomes();
-            refreshTransferToOptions()
-            inputMoney.value = '';
-            inputEmail.value = '';
-    };
-    sendMoneyToEmailButton.addEventListener('click', handleSendMoney);
+    // Save updated balances to localStorage
+    localStorage.setItem('incomes', JSON.stringify(incomes));
+    incomes = refreshIncomes();
+
+    // Clear input fields
+    inputMoney.value = '';
+    inputEmail.value = '';
 }
 
-function isValidEmail(email){
+// Helper function to validate email
+function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
