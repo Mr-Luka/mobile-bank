@@ -283,12 +283,21 @@ transferFromForEmail.addEventListener('change', e =>{
 function sendMoneyToEmail (accountType) {
     const inputMoney = transferFromZeX[accountType].querySelector('.input-number');
     const balance = transferFromZeX[accountType].querySelector('p');
+    const inputEmail = document.querySelector('#input-email');
 
     // Remove any existing listener to prevent duplication
     sendMoneyToEmailButton.removeEventListener('click', handleSendMoney);
 
     function handleSendMoney(){
         let amount = Number(inputMoney.value);
+        let email = inputEmail.value.trim();
+
+        if(!email){
+            alert('Please enter your email address');
+        }
+        if (!isValidEmail(email)){
+            alert('Invalid email address');
+        }
         // checking to see if the amount I entered is bigger then my available
         if (amount > parseCurrency(accountAmount(accountType))){
             alert('Insufficient funds');
@@ -322,7 +331,13 @@ function sendMoneyToEmail (accountType) {
             incomes = refreshIncomes();
             refreshTransferToOptions()
             inputMoney.value = '';
+            inputEmail.value = '';
     };
     sendMoneyToEmailButton.addEventListener('click', handleSendMoney);
+}
+
+function isValidEmail(email){
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
 }
         
