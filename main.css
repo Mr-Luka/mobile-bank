@@ -715,7 +715,7 @@ input.input-submit:hover {
     font-weight: 600;
 }
 input.input-number,
-input.crypto-input-account{
+input.input-number-crypto{
     font-size: 1.3rem;
     border-radius: 5px;
     border: none;

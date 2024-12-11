@@ -34,7 +34,7 @@
             </div>
         </header>
         <h1 class="pay-transfer">Pay & Transfer</h1>
-        <div class="option-blocks ">
+        <div class="option-blocks hidden">
             <div class="option-block" id="transfer">
                 <img class="pay-transfer-icons" src="../media/icons/diagram.gif" alt="transfer logo">
                 <h3>Transfer</h3>
@@ -203,7 +203,7 @@
             <button class="exit-ZeX zex-1">X</button>
         </div>
 
-        <div class="convert-crypto hidden">
+        <div class="convert-crypto ">
             <div class="choose-account-for-crypto">
                 <div clas="choose-the-account-from">
                 <form class="choose-account-form" action="/action_page.php" method="get">
@@ -229,16 +229,16 @@
                 <h2>Cryptocurrencies</h2>
                 <div class="crypto-list">
                     <label class="crypto-label">BTC Bitcoin</label><br>
-                    <input type="number" class="input-number" placeholder="₿">
+                    <input id="bitcoin" type="number" class="input-number" placeholder="₿">
                     <hr class="crypto-hr">
                     <label class="crypto-label">ETH Ethereum</label><br>
-                    <input type="number" class="input-number" placeholder="Ξ">
+                    <input id="eth" type="number" class="input-number" placeholder="Ξ">
                     <hr class="crypto-hr">
                     <label class="crypto-label">USDT Tether USD</label><br>
-                    <input type="number" class="input-number" placeholder="USD₮">
+                    <input id="usdt" type="number" class="input-number" placeholder="USD₮">
                     <hr class="crypto-hr">
                     <label class="crypto-label">SOL Solana</label><br>
-                    <input type="number" class="input-number" placeholder="SOL">
+                    <input id="sol" type="number" class="input-number" placeholder="SOL">
                     <hr class="crypto-hr">
                 </div>
             </div>

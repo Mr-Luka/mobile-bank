@@ -362,7 +362,7 @@ transferFromForCrypto.addEventListener('change', (e)=>{
             </div>
             <div class="input-amount">
                 <label>Amount: $</label>
-                <input type="number" class="input-number">
+                <input type="number" class="input-number-crypto">
             </div>`;
         } else if (accountType === "Credit Card"){
             accountForCrypto[accountType].innerHTML = `
@@ -372,8 +372,31 @@ transferFromForCrypto.addEventListener('change', (e)=>{
             </div>
             <div class="input-amount">
                 <label>Amount: $</label>
-                <input type="number" class="input-number">
+                <input type="number" class="input-number-crypto">
             </div>`;
-        }       
+        }
+        amountToCrypto (accountType)
     });
 })
+
+function amountToCrypto (accountType) {
+    const inputAmount = accountForCrypto[accountType].querySelector(`.input-number-crypto`);
+    // Ensure inputAmount exist to avoid null errors
+    if (inputAmount) {
+        inputAmount.addEventListener('input', ()=> {
+            console.log(inputAmount.value);
+        })
+    }
+    
+
+}
+
+
+
+
+
+
+//  const bitcoin = document.querySelector('#bitcoin');
+//     const eth = document.querySelector('#eth');
+//     const usdt = document.querySelector('#usdt');
+//     const sol = document.querySelector('#sol');
