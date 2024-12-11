@@ -9,7 +9,10 @@ const checkingH3Elements = document.querySelectorAll('.first-table li > div h3')
 const savingsH3Elements = document.querySelectorAll('.second-table li > div h3');
 const creditH3Elements = document.querySelectorAll('.third-table li > div h3');
 
-
+function refreshIncomes() {
+    return JSON.parse(localStorage.getItem('incomes'));
+}
+refreshIncomes()
 
 homeName.innerText = `Hello, ${registration.firstName}`;
 

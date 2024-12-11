@@ -402,7 +402,7 @@ function amountToCrypto (accountType) {
                 bitcoin.value = (amountValue / bitPrice).toFixed(8);
                 eth.value = (amountValue / ethPrice).toFixed(8);
                 usdt.value = (amountValue / usdtPrice).toFixed(2);
-                sol.value = (amountValue / solPrice).toFixed(8);
+                sol.value = (amountValue / solPrice).toFixed(2);
             } else {
                // Reset the crypto input fields if the input is invalid
                 bitcoin.value = '';
@@ -417,6 +417,6 @@ function amountToCrypto (accountType) {
 
 
 
-// const solPrice = usDollar.format(0.27)
+
 
     
