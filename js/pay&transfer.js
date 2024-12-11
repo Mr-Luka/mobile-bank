@@ -380,23 +380,43 @@ transferFromForCrypto.addEventListener('change', (e)=>{
 })
 
 function amountToCrypto (accountType) {
+    const bitcoin = document.querySelector('#bitcoin');
+    const eth = document.querySelector('#eth');
+    const usdt = document.querySelector('#usdt');
+    const sol = document.querySelector('#sol');
+
+    // Couldnt find free api for crypto, so I hardcoded crypto prices in USD
+    const bitPrice = 101437.90;
+    const ethPrice = 3835.87;
+    const usdtPrice = 1;
+    const solPrice = 0.27;
+
     const inputAmount = accountForCrypto[accountType].querySelector(`.input-number-crypto`);
     // Ensure inputAmount exist to avoid null errors
     if (inputAmount) {
         inputAmount.addEventListener('input', ()=> {
-            console.log(inputAmount.value);
+            let amountValue = parseFloat(inputAmount.value);
+
+            if(!isNaN(amountValue)){
+                // Calculate the amount of each cryptocurrency
+                bitcoin.value = (amountValue / bitPrice).toFixed(8);
+                eth.value = (amountValue / ethPrice).toFixed(8);
+                usdt.value = (amountValue / usdtPrice).toFixed(2);
+                sol.value = (amountValue / solPrice).toFixed(8);
+            } else {
+               // Reset the crypto input fields if the input is invalid
+                bitcoin.value = '';
+                eth.value = '';
+                usdt.value = '';
+                sol.value = ''; 
+            }
         })
     }
-    
-
 }
 
 
 
 
+// const solPrice = usDollar.format(0.27)
 
-
-//  const bitcoin = document.querySelector('#bitcoin');
-//     const eth = document.querySelector('#eth');
-//     const usdt = document.querySelector('#usdt');
-//     const sol = document.querySelector('#sol');
+    
