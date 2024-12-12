@@ -8,7 +8,7 @@ body {
 
 /* SIGNUP / SIGN IN */
 body.register-body{
-    background-color: rgb(225, 74, 74);
+    background-color: rgb(12, 85, 69);
 }
 #register-video,
 #spin-video{
@@ -280,9 +280,6 @@ button#continue:hover {
 }
 
 
-
-
-
 .instructions span {
   color: #24a8e6;
   opacity: 0;
@@ -290,16 +287,7 @@ button#continue:hover {
   animation: revolveScale 1s forwards;
 }
 
-@keyframes revolveScale {
-  60% {
-    transform: translate(20px, 20px) rotate(30deg) scale(.3);
-  }
 
-  100% {
-    transform: translate(0) rotate(0) scale(1);
-    opacity: 1;
-  }
-}
 
 .container-money h1{
     color: rgba(134, 134, 134, 0.577);
@@ -345,11 +333,12 @@ button#continue:hover {
     box-shadow: 10px 10px 32px 10px rgba(249, 114, 114, 0.706);
 }
 
+
+/* HOME PAGE */
 .bank-wrapper {
     background: url('./media/1.jpg') center no-repeat;
     background-size: cover;
-    background-color: #ac795a;
-    box-shadow: 0 8px 32px 0 rgba(250, 0, 0, 0.3);
+    background-color: #0c4534;
 }
 
 header {
@@ -381,7 +370,7 @@ header p {
 .nav-bar{
     margin-right: 3rem;
     background-color: rgba(0, 0, 0, 0.142);
-    box-shadow: 0 12px 32px 0 rgba(251, 206, 166, 0.804);
+    box-shadow: 0 12px 32px 0 rgba(19, 135, 116, 0.804);
     border-radius: 20px;
     animation: fadeLeft 1700ms ease-in-out forwards;
 }
@@ -900,8 +889,8 @@ footer.about-footer{
 
        /* FOOTER */
 footer.footer-home-page{
-    background-color: rgb(235, 173, 135);
-    box-shadow: inset 0px 15px 20px 10px rgb(196, 132, 92);
+    background-color: rgb(29, 126, 87);
+    box-shadow: inset 0px 15px 20px 10px rgb(1, 44, 32);
     backdrop-filter: blur(10px);
     position: relative;
 }
@@ -1006,6 +995,16 @@ ul li img:hover {
         opacity: 1;
         transform: translateX(0)
     }
+}
+@keyframes revolveScale {
+  60% {
+    transform: translate(20px, 20px) rotate(30deg) scale(.3);
+  }
+
+  100% {
+    transform: translate(0) rotate(0) scale(1);
+    opacity: 1;
+  }
 }
 
 

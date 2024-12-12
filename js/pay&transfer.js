@@ -58,11 +58,7 @@ exitOptionWindow.forEach(exit => {
     exit.addEventListener('click', exitWindow);
 });
 
-// event listeners to open each transfer option from pay&transfer
-transferBlock.addEventListener('click', openTransfer);
-zeXBlock.addEventListener('click', openZeX);
-cryptoBlock.addEventListener('click', openCrypto);
-// END of the click event segment
+
 
 
 
@@ -419,4 +415,8 @@ function amountToCrypto (accountType) {
 
 
 
-    
+// event listeners to open each transfer option from pay&transfer
+transferBlock.addEventListener('click', openTransfer);
+zeXBlock.addEventListener('click', openZeX);
+cryptoBlock.addEventListener('click', openCrypto);
+// END of the click event segment
